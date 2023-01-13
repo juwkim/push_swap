@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:32:06 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:46:36 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,17 @@ static int	under3(t_push_swap *ps)
 		ps->cmd(ps, "pa");
 		return (ps->cmd(ps, "pa"));
 	}
-	ps->cmd(ps, "rb") && ps->cmd(ps, "sb") && ps->cmd(ps, "pa");
+	if (ps->cmd(ps, "rb"))
+		if (ps->cmd(ps, "sb"))
+			ps->cmd(ps, "pa");
 	if (ps->b.node[0]->rank < ps->b.node[1]->rank)
-		ps->cmd(ps, "rrb") && ps->cmd(ps, "pa");
+	{
+		if (ps->cmd(ps, "rrb"))
+			ps->cmd(ps, "pa");
+	}
 	else
-		ps->cmd(ps, "pa") && ps->cmd(ps, "rrb");
+		if (ps->cmd(ps, "pa"))
+			ps->cmd(ps, "rrb");
 	return (ps->cmd(ps, "pa"));
 }
 
@@ -47,7 +53,8 @@ static int	check(t_push_swap *ps, t_ps_value *val, unsigned int size)
 		{
 			if (ps->b.node[0]->rank < ps->b.node[0]->next->rank)
 				ps->cmd(ps, "sb");
-			ps->cmd(ps, "pa") && ps->cmd(ps, "pa");
+			if (ps->cmd(ps, "pa"))
+				ps->cmd(ps, "pa");
 		}
 		else if (size == 3)
 			return (under3(ps));

@@ -6,16 +6,14 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/13 12:15:09 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/13 12:38:27 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the compiler and flags
 
 CC					=	cc
-CFLAGS				=	-march=native -O2 -pipe -MMD
-LIBFT				=	$(LIB_DIR)/libft.a
-a = -Wall -Wextra -Werror
+CFLAGS				=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD
 
 # Define the directories
 
@@ -26,6 +24,8 @@ LIB_DIR				=	libft
 
 
 # Define the source files
+
+LIBFT				=	$(LIB_DIR)/libft.a
 
 PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c push_swap.c ps_init.c ps_parse.c ps_atob.c ps_btoa.c ps_solve.c)
 PUSHSWAP_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))

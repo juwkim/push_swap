@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:32:03 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:40:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ static unsigned int	push(struct s_push_swap *ps, char cmd)
 	t_deque_node	*tmp;
 	t_deque			*from_to[2];
 
-	if (ps == 0)
-		ps_error();
 	if (cmd == 'a')
 	{
 		from_to[0] = &ps->b;
 		from_to[1] = &ps->a;
 	}
-	else if (cmd == 'b')
+	else
 	{
 		from_to[0] = &ps->a;
 		from_to[1] = &ps->b;

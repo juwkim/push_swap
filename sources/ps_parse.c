@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:31:59 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:47:07 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,5 @@ void	ps_parse(t_push_swap *ps, int argc, char **argv)
 		free(splited);
 		++i;
 	}
-	ft_printf("\n");
 	ps->max = ps->a.size;
 }

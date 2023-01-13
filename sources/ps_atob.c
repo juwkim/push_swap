@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:32:10 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:44:46 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ static int	under5(t_push_swap *ps)
 	else if (swap[1])
 		ps->cmd(ps, "sb");
 	under3(ps, 3);
-	ps->cmd(ps, "pa") && ps->cmd(ps, "pa");
+	if (ps->cmd(ps, "pa"))
+		ps->cmd(ps, "pa");
 	return (1);
 }
 
