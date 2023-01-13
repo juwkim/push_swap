@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:14 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:32:15 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:57:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_deque_node	*deque(struct s_deque *dq, int is_rear)
 	t_deque_node	*node;
 
 	if (!dq || (is_rear != 0 && is_rear != 1))
-		ps_error();
+		ps_error_and_exit();
 	node = dq->node[is_rear];
 	if (is_rear)
 	{
@@ -70,7 +70,7 @@ static t_deque_node	*deque(struct s_deque *dq, int is_rear)
 static void	enque(struct s_deque *dq, int is_rear, t_deque_node *node)
 {
 	if (!dq || (is_rear != 0 && is_rear != 1) || !node)
-		ps_error();
+		ps_error_and_exit();
 	if (!dq->node[is_rear])
 	{
 		dq->node[0] = node;

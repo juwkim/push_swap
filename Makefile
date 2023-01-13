@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/13 12:38:27 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/13 12:57:30 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ $(CHECKER): $(CHECKER_OBJS)
 	@printf "\n$(MAGENTA)[PUSHSWAP] Linking Success $@\n$(DEF_COLOR)"
 
 $(BUILD_DIR)/%.o : %.c | dir_guard
-	@$(CC) $(CFLAGS) $(INC_DIR) -c $^ -o $@
+	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
 	$(eval COMPILED_FILES = $(shell expr $(COMPILED_FILES) + 1))
 	$(eval PROGRESS = $(shell expr $(COMPILED_FILES) "*" $(STEP) / $(TOTAL_FILES)))
 	@printf "                                                                                                   \r"

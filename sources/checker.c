@@ -6,13 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:18 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:32:19 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 13:00:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_error(void)
+void	ps_error_and_exit(void)
 {
 	ft_fprintf(STDERR, "Error\n");
 	exit(-1);
@@ -24,7 +24,7 @@ static void	run(t_push_swap *ps)
 	char	*end;
 
 	if (ps == 0)
-		ps_error();
+		ps_error_and_exit();
 	cmd = get_next_line(0);
 	while (cmd)
 	{
