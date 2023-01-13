@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/13 12:57:30 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/14 02:50:00 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ LIB_DIR				=	libft
 
 LIBFT				=	$(LIB_DIR)/libft.a
 
-PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c push_swap.c ps_init.c ps_parse.c ps_atob.c ps_btoa.c ps_solve.c)
+PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c main.c init.c parse.c ps_atob.c ps_btoa.c ps_solve.c)
 PUSHSWAP_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
 PUSHSWAP_DEPS		=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
 PUSHSWAP			=	push_swap
 
-CHECKER_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c ps_init.c ps_parse.c checker.c)
+CHECKER_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c init.c parse.c checker.c)
 CHECKER_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
 CHECKER_DEPS		=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
 
@@ -54,7 +54,7 @@ all: $(LIBFT) $(PUSHSWAP)
 bonus: all $(CHECKER)
 
 $(LIBFT):
-	@$(MAKE) -C $(@D)
+	@$(MAKE) -j -C $(@D)
 
 $(PUSHSWAP): $(PUSHSWAP_OBJS)
 	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT)

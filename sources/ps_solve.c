@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:44 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:58:09 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 02:29:36 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	merge(unsigned int *arr, \
 
 	tmp = ft_calloc(r - p + 1, sizeof(unsigned int));
 	if (tmp == 0)
-		ps_error_and_exit();
+		ft_error_and_exit();
 	idx[0] = 0;
 	idx[1] = p;
 	idx[2] = q + 1;
@@ -77,7 +77,7 @@ void	ps_pivot(t_deque *dq, unsigned int size, t_ps_value *val)
 
 	arr = ft_calloc(size, sizeof(unsigned int));
 	if (val == 0 || arr == 0)
-		ps_error_and_exit();
+		ft_error_and_exit();
 	ft_memset(val, 0, sizeof(t_ps_value));
 	curr = dq->node[0];
 	while (val->size < size && curr)

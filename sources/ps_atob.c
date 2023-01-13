@@ -6,13 +6,13 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:44:46 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 02:24:14 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	under3(t_push_swap *ps, unsigned int size)
+int	under3(t_push_swap *ps, unsigned int size)
 {
 	t_deque_node	*node;
 
@@ -41,7 +41,7 @@ static int	under3(t_push_swap *ps, unsigned int size)
 	return (under3(ps, 3));
 }
 
-static int	under4(t_push_swap *ps)
+int	under4(t_push_swap *ps)
 {
 	t_ps_value	val;
 
@@ -59,7 +59,7 @@ static int	under4(t_push_swap *ps)
 	return (under3(ps, 3) && ps->cmd(ps, "rra"));
 }
 
-static int	under5(t_push_swap *ps)
+int	under5(t_push_swap *ps)
 {
 	int			swap[2];
 	t_ps_value	val;
@@ -88,7 +88,7 @@ static int	under5(t_push_swap *ps)
 	return (1);
 }
 
-static int	check(t_push_swap *ps, t_ps_value *val, unsigned int size)
+int	check(t_push_swap *ps, t_ps_value *val, unsigned int size)
 {
 	if (ps->a.sorted(&ps->a, 0, 1) >= size)
 		return (1);
@@ -102,7 +102,7 @@ static int	check(t_push_swap *ps, t_ps_value *val, unsigned int size)
 	return (0);
 }
 
-void	ps_atob(t_push_swap *ps, unsigned int size)
+void	push_swap(t_push_swap *ps, unsigned int size)
 {
 	t_ps_value		val;
 
@@ -120,7 +120,7 @@ void	ps_atob(t_push_swap *ps, unsigned int size)
 		}
 	}
 	ps_restore(ps, val.ra, val.rb);
-	ps_atob(ps, size - val.push);
+	push_swap(ps, size - val.push);
 	ps_btoa(ps, val.rb);
 	ps_btoa(ps, val.push - val.rb);
 }

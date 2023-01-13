@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_init.c                                          :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:52:25 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 03:01:19 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "init.h"
 
-static unsigned int	push(struct s_push_swap *ps, char cmd)
+void	init(t_push_swap *ps)
+{
+	ps->max = 0;
+	ps->command_list = NULL;
+	ps->cmd = cmd;
+	deque_init(&ps->a);
+	deque_init(&ps->b);
+}
+
+unsigned int	push(t_push_swap *ps, char cmd)
 {
 	t_deque_node	*tmp;
 	t_deque			*from_to[2];
@@ -34,13 +43,13 @@ static unsigned int	push(struct s_push_swap *ps, char cmd)
 	return (1);
 }
 
-static unsigned int	swap(struct s_push_swap *ps, char cmd)
+unsigned int	swap(struct s_push_swap *ps, char cmd)
 {
 	t_deque			*dq;
 	t_deque_node	*node[2];
 
 	if (ps == 0)
-		ps_error_and_exit();
+		ft_error_and_exit();
 	if (cmd == 's')
 		return ((swap(ps, 'a') && swap(ps, 'b')) || 1);
 	else if (cmd == 'a' && ps->a.size >= 2)
@@ -56,13 +65,13 @@ static unsigned int	swap(struct s_push_swap *ps, char cmd)
 	return (1);
 }
 
-static unsigned int	rotate(struct s_push_swap *ps, char *cmd)
+unsigned int	rotate(struct s_push_swap *ps, char *cmd)
 {
 	t_deque_node	*tmp;
 	int				is_reverse;
 
 	if (ps == 0)
-		ps_error_and_exit();
+		ft_error_and_exit();
 	if (ft_strncmp(cmd, "rr", 2) == 0)
 		return ((rotate(ps, "ra") && rotate(ps, "rb")) || 1);
 	if (ft_strncmp(cmd, "rrr", 3) == 0)
@@ -83,7 +92,7 @@ static unsigned int	rotate(struct s_push_swap *ps, char *cmd)
 	return (1);
 }
 
-static unsigned int	cmd(struct s_push_swap *ps, char *cmd)
+unsigned int	cmd(struct s_push_swap *ps, char *cmd)
 {
 	t_list			*new;
 	char			*tmp;
@@ -100,22 +109,13 @@ static unsigned int	cmd(struct s_push_swap *ps, char *cmd)
 			|| !ft_strncmp(cmd, "rb", 2) || !ft_strncmp(cmd, "rrb", 3)))
 		ret = rotate(ps, cmd);
 	else
-		ps_error_and_exit();
+		ft_error_and_exit();
 	if (ret == 0)
 		return (ret);
 	tmp = ft_strdup(cmd);
 	new = ft_lstnew(tmp);
 	if (tmp == 0 || new == 0)
-		ps_error_and_exit();
+		ft_error_and_exit();
 	ft_lstadd_back(&ps->command_list, new);
 	return (ret);
-}
-
-void	ps_init(struct s_push_swap *ps)
-{
-	ps->max = 0;
-	deque_init(&ps->a);
-	deque_init(&ps->b);
-	ps->command_list = NULL;
-	ps->cmd = cmd;
 }

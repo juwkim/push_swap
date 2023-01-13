@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "push_swap.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "main.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:52:26 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 02:32:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "main.h"
 
-void	ps_error_and_exit(void)
+int	main(int argc, char **argv)
 {
-	ft_fprintf(STDERR, "Error\n");
-	exit(EXIT_FAILURE);
+	t_push_swap	ps;
+
+	if (argc == 1)
+		ft_error_and_exit();
+	init(&ps);
+	parse(&ps, argc, argv);
+	push_swap(&ps, ps.max);
+	print_result(ps.command_list);
+	exit(0);
 }
 
-static int	dup_check(char *cmd1, char *cmd2)
+int	dup_check(char *cmd1, char *cmd2)
 {
 	if (cmd1 == 0 || cmd2 == 0)
 		return (0);
@@ -34,7 +41,7 @@ static int	dup_check(char *cmd1, char *cmd2)
 	return (0);
 }
 
-void	ps_result(t_list *curr)
+void	print_result(t_list *curr)
 {
 	int	flag;
 
@@ -57,17 +64,4 @@ void	ps_result(t_list *curr)
 	}
 	if (curr)
 		ft_printf("%s\n", curr->content);
-}
-
-int	main(int argc, char **argv)
-{
-	t_push_swap	ps;
-
-	if (argc == 1)
-		exit(EXIT_FAILURE);
-	ps_init(&ps);
-	ps_parse(&ps, argc, argv);
-	ps_atob(&ps, ps.max);
-	ps_result(ps.command_list);
-	exit(0);
 }

@@ -6,25 +6,25 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:18 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 13:00:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 02:23:28 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_error_and_exit(void)
+void	error_and_exit(void)
 {
 	ft_fprintf(STDERR, "Error\n");
 	exit(-1);
 }
 
-static void	run(t_push_swap *ps)
+void	run(t_push_swap *ps)
 {
 	char	*cmd;
 	char	*end;
 
 	if (ps == 0)
-		ps_error_and_exit();
+		error_and_exit();
 	cmd = get_next_line(0);
 	while (cmd)
 	{
@@ -47,8 +47,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		exit(-1);
-	ps_init(&ps);
-	ps_parse(&ps, argc - 1, argv + 1);
+	init(&ps);
+	parse(&ps, argc - 1, argv + 1);
 	run(&ps);
 	exit(0);
 }
