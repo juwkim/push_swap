@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:51 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:41:41 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:52:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ struct s_push_swap
 };
 
 void	deque_init(struct s_deque *dq);
-void	ps_error(void);
+void	ps_error_and_exit(void);
 void	ps_init(struct s_push_swap *ps);
 void	ps_parse(struct s_push_swap *ps, int size, char **strs);
 

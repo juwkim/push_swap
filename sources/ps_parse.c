@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:47:07 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:52:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	ps_atoi(const char *str)
 	if (*str == '+' || *str == '-')
 		minus = *str++ == '-';
 	if (!ft_isdigit(*str))
-		ps_error();
+		ps_error_and_exit();
 	rtn = 0;
 	while ('0' <= *str && *str <= '9')
 	{
 		if (rtn > 214748364 || (rtn == 214748364 && (*str > '7' + minus)))
-			ps_error();
+			ps_error_and_exit();
 		rtn = rtn * 10 + *str++ - '0';
 	}
 	if (minus)
@@ -54,7 +54,7 @@ static void	ps_rank(t_deque *dq, int num)
 		curr = curr->next;
 	}
 	if (self == 0)
-		ps_error();
+		ps_error_and_exit();
 	self->rank = rank;
 }
 
@@ -65,13 +65,13 @@ static void	ps_set(t_push_swap *ps, char *str)
 
 	new = ft_calloc(1, sizeof(t_deque_node));
 	if (new == NULL)
-		ps_error();
+		ps_error_and_exit();
 	new->num = ps_atoi(str);
 	curr = ps->a.node[0];
 	while (curr)
 	{
 		if (curr->num == new->num)
-			ps_error();
+			ps_error_and_exit();
 		curr = curr->next;
 	}
 	ps->a.enque(&ps->a, 1, new);
@@ -89,7 +89,7 @@ void	ps_parse(t_push_swap *ps, int argc, char **argv)
 	{
 		splited = ft_split(argv[i], ' ');
 		if (*splited == NULL)
-			ps_error();
+			ps_error_and_exit();
 		j = 0;
 		while (splited[j])
 		{
