@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:44 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/13 12:31:46 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/13 12:34:30 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ps_restore(t_push_swap *ps, unsigned int ra, unsigned int rb)
 {
-	if (ps == 0)
-		ps_error();
 	if (ps->a.size <= ra)
 		ra = 0;
 	if (ps->b.size <= rb)
