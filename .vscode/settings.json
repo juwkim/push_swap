@@ -2,7 +2,11 @@
     "files.associations": {
         "push_swap.h": "c",
         "libft.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "dqueue.h": "c",
+        "ft_printf.h": "c",
+        "stdlib.h": "c",
+        "type_traits": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
