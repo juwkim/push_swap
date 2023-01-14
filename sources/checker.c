@@ -6,17 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:18 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:23:28 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/14 18:24:31 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error_and_exit(void)
-{
-	ft_fprintf(STDERR, "Error\n");
-	exit(-1);
-}
 
 void	run(t_push_swap *ps)
 {
@@ -24,8 +18,8 @@ void	run(t_push_swap *ps)
 	char	*end;
 
 	if (ps == 0)
-		error_and_exit();
-	cmd = get_next_line(0);
+		ft_error_and_exit();
+	cmd = get_next_line(STDIN);
 	while (cmd)
 	{
 		end = ft_strchr(cmd, '\n');
