@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:32:43 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 21:20:09 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	main(int argc, char **argv)
 	t_push_swap	ps;
 
 	if (argc == 1)
-		ft_error_and_exit();
+		ft_error_and_exit("i don't know what to do");
 	init(&ps);
 	parse(&ps, argc, argv);
+	ps->max = size(ps->a);
 	push_swap(&ps, ps.max);
 	print_result(ps.command_list);
 	exit(0);

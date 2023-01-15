@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:56:59 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 21:43:53 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,82 +23,42 @@ void	parse(t_push_swap *ps, int argc, char **argv)
 	{
 		splited = ft_split(argv[i], ' ');
 		if (splited == NULL || *splited == NULL)
-			ft_error_and_exit();
+			ft_error_and_exit("unexpected return value while parsing");
 		j = 0;
 		while (splited[j])
 		{
-			ps_set(ps, splited[j]);
+			push_back(ps->a, _atoi(splited[j]));
 			free(splited[j]);
 			++j;
 		}
 		free(splited);
 		++i;
 	}
-	ps->max = ps->a.size;
 }
 
-void	ps_set(t_push_swap *ps, char *str)
+int	_atoi(const char *str)
 {
-	t_deque_node	*new;
-	t_deque_node	*curr;
+	int	num;
+	int	sign;
 
-	new = ft_calloc(1, sizeof(t_deque_node));
-	if (new == NULL)
-		ft_error_and_exit();
-	new->num = ps_atoi(str);
-	curr = ps->a.node[0];
-	while (curr)
+	sign = 1;
+	if (ft_strfind(*str, "+-") != -1)
 	{
-		if (curr->num == new->num)
-			ft_error_and_exit();
-		curr = curr->next;
+		if (*str == '+')
+			sign = 1;
+		else
+			sign = -1;
+		++str;
 	}
-	ps->a.enque(&ps->a, 1, new);
-	ps_rank(&ps->a, new->num);
+	if (ft_isdigit(*str) == false)
+		ft_error_and_exit("space while parsing integer");
+	num = sign * (*str++ - '0');
+	while (ft_isdigit(*str))
+	{
+		num = num * 10 + *str++ - '0';
+		if ((sign == 1 && num < 0) || (sign == -1 && num >= 0))
+			ft_error_and_exit("size of integer is so big");
+	}
+	return (num);
 }
 
-int	ps_atoi(const char *str)
-{
-	int	rtn;
-	int	minus;
-
-	minus = 0;
-	if (*str == '+' || *str == '-')
-		minus = *str++ == '-';
-	if (!ft_isdigit(*str))
-		ft_error_and_exit();
-	rtn = 0;
-	while ('0' <= *str && *str <= '9')
-	{
-		if (rtn > 214748364 || (rtn == 214748364 && (*str > '7' + minus)))
-			ft_error_and_exit();
-		rtn = rtn * 10 + *str++ - '0';
-	}
-	if (minus)
-		rtn *= -1;
-	return (rtn);
-}
-
-void	ps_rank(t_deque *dq, int num)
-{
-	unsigned int	rank;
-	t_deque_node	*self;
-	t_deque_node	*curr;
-
-	rank = 0;
-	self = 0;
-	curr = dq->node[0];
-	while (curr)
-	{
-		if (curr->num == num)
-			self = curr;
-		else if (curr->num < num)
-			rank += 1;
-		else if (curr->num > num)
-			curr->rank += 1;
-		curr = curr->next;
-	}
-	if (self == 0)
-		ft_error_and_exit();
-	self->rank = rank;
-}

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:14 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:29:36 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:58:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_deque_node	*deque(struct s_deque *dq, int is_rear)
 	t_deque_node	*node;
 
 	if (!dq || (is_rear != 0 && is_rear != 1))
-		ft_error_and_exit();
+		ft_error_and_exit("i don't know what to do");
 	node = dq->node[is_rear];
 	if (is_rear)
 	{
@@ -70,7 +70,7 @@ t_deque_node	*deque(struct s_deque *dq, int is_rear)
 void	enque(struct s_deque *dq, int is_rear, t_deque_node *node)
 {
 	if (!dq || (is_rear != 0 && is_rear != 1) || !node)
-		ft_error_and_exit();
+		ft_error_and_exit("i don't know what to do");
 	if (!dq->node[is_rear])
 	{
 		dq->node[0] = node;
@@ -95,7 +95,4 @@ void	deque_init(struct s_deque *dq)
 	dq->size = 0;
 	dq->node[0] = NULL;
 	dq->node[1] = NULL;
-	dq->sorted = sorted;
-	dq->deque = deque;
-	dq->enque = enque;
 }

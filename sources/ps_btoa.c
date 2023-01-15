@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:29:36 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 20:55:17 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ps_btoa(t_push_swap *ps, unsigned int size)
 	t_ps_value		val;
 
 	if (ps == 0)
-		ft_error_and_exit();
+		ft_error_and_exit("i don't know what to do");
 	if (check(ps, &val, size))
 		return ;
 	while (val.rb + val.push < val.size)
