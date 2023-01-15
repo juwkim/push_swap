@@ -3,7 +3,7 @@
         "push_swap.h": "c",
         "libft.h": "c",
         "main.h": "c",
-        "dqueue.h": "c",
+        "deque.h": "c",
         "ft_printf.h": "c",
         "stdlib.h": "c",
         "type_traits": "c",
