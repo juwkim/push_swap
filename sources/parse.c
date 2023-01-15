@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/15 21:43:53 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 21:51:48 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	parse(t_push_swap *ps, int argc, char **argv)
 		free(splited);
 		++i;
 	}
+	if (is_duplication(ps->a))
+		ft_error_and_exit("unexpected return value while parsing");
 }
 
 int	_atoi(const char *str)
@@ -44,9 +46,7 @@ int	_atoi(const char *str)
 	sign = 1;
 	if (ft_strfind(*str, "+-") != -1)
 	{
-		if (*str == '+')
-			sign = 1;
-		else
+		if (*str == '-')
 			sign = -1;
 		++str;
 	}

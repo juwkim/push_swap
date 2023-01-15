@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:51 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/15 21:08:06 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/15 21:46:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ typedef struct s_ps_value
 
 typedef struct s_push_swap
 {
-	unsigned int	max;
 	t_deque			a;
 	t_deque			b;
+	unsigned int	max;
 }	t_push_swap;
 
 void	ps_restore(t_push_swap *ps, unsigned int ra, unsigned int rb);
