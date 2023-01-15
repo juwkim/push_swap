@@ -6,7 +6,16 @@
         "dqueue.h": "c",
         "ft_printf.h": "c",
         "stdlib.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "cstdint": "cpp",
+        "murmurhash3.h": "c"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/juwkim/Desktop/push_swap",
+            "binaryPath": "/home/juwkim/Desktop/push_swap/push_swap",
+            "binaryArgs": []
+        }
+    ]
 }
