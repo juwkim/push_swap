@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/14 02:50:00 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/15 10:35:08 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,15 @@ CFLAGS				=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD
 
 SRC_DIR				=	sources
 BUILD_DIR			=	build
-INC_DIR				=	-I includes -I $(LIB_DIR)/includes
-LIB_DIR				=	libft
+INC_DIR				=	-I includes -I $(MAGIC_DIR)/includes -I $(LIBFT_DIR)/includes
 
+MAGIC_DIR			=	algorithms-and-data-structures
+LIBFT_DIR			=	libft
 
 # Define the source files
 
-LIBFT				=	$(LIB_DIR)/libft.a
+MAGIC				=	$(MAGIC_DIR)/magic.a
+LIBFT				=	$(LIBFT_DIR)/libft.a
 
 PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c main.c init.c parse.c ps_atob.c ps_btoa.c ps_solve.c)
 PUSHSWAP_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
@@ -49,19 +51,20 @@ STEP				:=	100
 
 # Define the rules
 
-all: $(LIBFT) $(PUSHSWAP)
+all:
+	@$(MAKE) -C $(MAGIC_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -j $(PUSHSWAP)
 
-bonus: all $(CHECKER)
-
-$(LIBFT):
-	@$(MAKE) -j -C $(@D)
+bonus: all
+	@$(MAKE) -j $(CHECKER)
 
 $(PUSHSWAP): $(PUSHSWAP_OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC)
 	@printf "\n$(MAGENTA)[PUSHSWAP] Linking Success\n$(DEF_COLOR)"
 
 $(CHECKER): $(CHECKER_OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC)
 	@printf "\n$(MAGENTA)[PUSHSWAP] Linking Success $@\n$(DEF_COLOR)"
 
 $(BUILD_DIR)/%.o : %.c | dir_guard
@@ -78,12 +81,14 @@ norm:
 	@(norminette | grep Error) || (printf "$(GREEN)[PUSHSWAP]:\tNorminette Success\n$(DEF_COLOR)")
 
 clean:
-	@$(MAKE) -C $(LIB_DIR) clean
+	@$(MAKE) -C $(MAGIC_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(RM) -r $(BUILD_DIR)
 	@printf "$(BLUE)[PUSHSWAP]:\tobj. dep. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
 
 fclean:
-	@$(MAKE) -C $(LIB_DIR) fclean
+	@$(MAKE) -C $(MAGIC_DIR) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@$(RM) -r $(BUILD_DIR) $(PUSHSWAP) $(CHECKER)
 	@printf "$(BLUE)[PUSHSWAP]:\tobj. dep. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
 	@printf "$(CYAN)[PUSHSWAP]:\texec. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
@@ -92,7 +97,7 @@ re: fclean
 	@$(MAKE) all
 	@printf "$(GREEN)Cleaned and rebuilt everything for pushswap!\n$(DEF_COLOR)"
 
-.PHONY: all clean fclean re bonus dir_guard norm $(LIB_DIR)
+.PHONY: all clean fclean re bonus dir_guard norm
 
 #Colors
 
