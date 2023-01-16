@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 14:49:39 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 15:02:53 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	main(int argc, char **argv)
 	dq_init(&a);
 	dq_init(&b);
 	parse(&a, argc, (const char **) argv);
+
+	int cur = a.head;
+	while ((a.tail - cur) % QUEUE_SIZE)
+	{
+		ft_printf("item: %d rank: %d\n", a.nodes[cur].item, a.nodes[cur].rank);
+		cur = (cur + 1) % QUEUE_SIZE;
+	}
 
 	// push_swap(&a, &b, a->size);
 	// print_result(ps.command_list);

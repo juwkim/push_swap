@@ -6,40 +6,40 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/16 11:12:37 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/16 15:04:42 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the compiler and flags
 
-CC					=	cc
-CFLAGS				=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD -fsanitize=leak
+CC					:=	cc
+CFLAGS				:=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD -fsanitize=leak -fsanitize=address
 
 # Define the directories
 
-SRC_DIR				=	sources
-BUILD_DIR			=	build
-INC_DIR				=	-I includes -I $(MAGIC_DIR)/includes -I $(LIBFT_DIR)/includes
+MAGIC_DIR			:=	algorithms-and-data-structures
+LIBFT_DIR			:=	libft
 
-MAGIC_DIR			=	algorithms-and-data-structures
-LIBFT_DIR			=	libft
+SRC_DIR				:=	sources
+BUILD_DIR			:=	build
+INC_DIR				:=	-I includes -I $(MAGIC_DIR)/includes -I $(LIBFT_DIR)/includes
 
 # Define the source files
 
-MAGIC				=	$(MAGIC_DIR)/magic.a
-LIBFT				=	$(LIBFT_DIR)/libft.a
+MAGIC				:=	$(MAGIC_DIR)/magic.a
+LIBFT				:=	$(LIBFT_DIR)/libft.a
 
-PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, main.c parse.c)
-PUSHSWAP_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
-PUSHSWAP_DEPS		=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
+PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c parse.c)
+PUSHSWAP_OBJS		:=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
+PUSHSWAP_DEPS		:=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
-PUSHSWAP			=	push_swap
+PUSHSWAP			:=	push_swap
 
-CHECKER_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c init.c parse.c checker.c)
-CHECKER_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
-CHECKER_DEPS		=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
+CHECKER_SRCS		:=	$(addprefix $(SRC_DIR)/, deque.c init.c parse.c checker.c)
+CHECKER_OBJS		:=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
+CHECKER_DEPS		:=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
 
-CHECKER				=	checker
+CHECKER				:=	checker
 
 
 # Define the variables for progress bar
