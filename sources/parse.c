@@ -6,13 +6,17 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 11:02:29 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 11:27:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void	parse(t_deque *a, int argc, char **argv)
+static int	atoi_and_check_overflow(const char *str);
+static bool	is_overflow(const t_sign sign, const int prev, const int num);
+static bool	is_duplication(const t_deque *a);
+
+void	parse(t_deque *a, const int argc, const char **argv)
 {
 	int		i;
 	int		j;
@@ -38,7 +42,7 @@ void	parse(t_deque *a, int argc, char **argv)
 		ft_error_and_exit("duplication while parsing");
 }
 
-int	atoi_and_check_overflow(const char *str)
+static int	atoi_and_check_overflow(const char *str)
 {
 	int		num;
 	int		prev;
@@ -67,12 +71,12 @@ int	atoi_and_check_overflow(const char *str)
 	return (num);
 }
 
-bool	is_overflow(t_sign sign, int prev, int num)
+static bool	is_overflow(const t_sign sign, const int prev, const int num)
 {
 	return ((sign == PLUS && num < prev) || (sign == MINUS && num > prev));
 }
 
-bool	is_duplication(t_deque *a)
+static bool	is_duplication(const t_deque *a)
 {
 	t_bst_node	*root;
 	size_t		nodes;
@@ -84,5 +88,5 @@ bool	is_duplication(t_deque *a)
 		root = bst_insert(root, a->items[cur++]);
 	nodes = bst_count_nodes(root);
 	bst_destroy(root);
-	return (nodes != dq_size(a));
+	return (nodes != dq_size((t_deque *) a));
 }

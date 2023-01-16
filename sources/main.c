@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 11:02:45 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 11:25:24 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		ft_error_and_exit("i don't know what to do");
 	dq_init(&a);
 	dq_init(&b);
-	parse(&a, argc, argv);
+	parse(&a, argc, (const char **) argv);
 
 	// push_swap(&a, &b, a->size);
 	// print_result(ps.command_list);
