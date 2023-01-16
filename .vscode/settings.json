@@ -11,7 +11,8 @@
         "murmurhash3.h": "c",
         "parse.h": "c",
         "stdbool.h": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "stdint.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "makefile.launchConfigurations": [

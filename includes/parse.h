@@ -6,13 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:51:05 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 12:13:54 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:23:09 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
 
+# include <stdint.h>
 # include <stdbool.h>
 
 # include "libft.h"

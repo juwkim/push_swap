@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 12:13:31 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:45:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,44 +46,38 @@ void	parse(t_deque *a, const int argc, const char **argv)
 static int	atoi_and_check_overflow(const char *str)
 {
 	int		num;
+	int		dnum;
 	t_sign	sign;
 
 	sign = PLUS;
 	if (ft_strfind(*str, "+-") != -1)
-	{
-		if (*str == '-')
-			sign = MINUS;
-		++str;
-	}
+		sign = (*str++ == '-');
 	if (ft_isdigit(*str) == false)
 		ft_error_and_exit("space in front of digit while parsing integer");
 	num = 0;
 	while (ft_isdigit(*str))
 	{
+		if (sign == PLUS)
+			dnum = (*str++ - '0');
+		else
+			dnum = - (*str++ - '0');
 		if (is_mul_overflow(num, 10))
 			ft_error_and_exit("size of integer is so big");
-		if (is_add_overflow(num * 10, *str - '0'))
+		if (is_add_overflow(num * 10, dnum))
 			ft_error_and_exit("size of integer is so big");
-		if (sign == PLUS)
-			num = num * 10 + (*str++ - '0');
-		else
-			num = num * 10 - (*str++ - '0');
+		num = num * 10 + dnum;
 	}
 	return (num);
 }
 
 static bool	is_mul_overflow(const int a, const int b)
 {
-	const int	result = a * b;
-
-	return (result / a != b);
+	return (a > INT32_MAX / b || a < INT32_MIN / b);
 }
 
 static bool	is_add_overflow(const int a, const int b)
 {
-	const int	result = a + b;
-
-	return ((a > 0 && b > 0 && result < 0) || (a < 0 && b < 0 && result >= 0));
+	return ((a > 0 && b > INT32_MAX - a) || (a < 0 && b < INT32_MIN - a));
 }
 
 static bool	is_duplication(const t_deque *a)
