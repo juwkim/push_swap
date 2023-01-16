@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 02:24:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 08:03:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,41 +86,4 @@ int	under5(t_push_swap *ps)
 	if (ps->cmd(ps, "pa"))
 		ps->cmd(ps, "pa");
 	return (1);
-}
-
-int	check(t_push_swap *ps, t_ps_value *val, unsigned int size)
-{
-	if (ps->a.sorted(&ps->a, 0, 1) >= size)
-		return (1);
-	ps_pivot(&ps->a, size, val);
-	if (size < 4)
-		return (under3(ps, size));
-	if (size == 4 && ps->a.size == 4)
-		return (under4(ps));
-	if (size == 5 && ps->a.size == 5)
-		return (under5(ps));
-	return (0);
-}
-
-void	push_swap(t_push_swap *ps, unsigned int size)
-{
-	t_ps_value		val;
-
-	if (check(ps, &val, size))
-		return ;
-	while (val.ra + val.push < val.size)
-	{
-		if (ps->a.node[0]->rank >= val.pivot2)
-			val.ra += ps->cmd(ps, "ra");
-		else
-		{
-			val.push += ps->cmd(ps, "pb");
-			if (ps->b.node[0]->rank > val.pivot1)
-				val.rb += ps->cmd(ps, "rb");
-		}
-	}
-	ps_restore(ps, val.ra, val.rb);
-	push_swap(ps, size - val.push);
-	ps_btoa(ps, val.rb);
-	ps_btoa(ps, val.push - val.rb);
 }

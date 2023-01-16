@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/15 10:35:08 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/16 10:40:26 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIBFT_DIR			=	libft
 MAGIC				=	$(MAGIC_DIR)/magic.a
 LIBFT				=	$(LIBFT_DIR)/libft.a
 
-PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, deque.c main.c init.c parse.c ps_atob.c ps_btoa.c ps_solve.c)
+PUSHSWAP_SRCS		=	$(addprefix $(SRC_DIR)/, main.c parse.c)
 PUSHSWAP_OBJS		=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
 PUSHSWAP_DEPS		=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
@@ -44,7 +44,7 @@ CHECKER				=	checker
 
 # Define the variables for progress bar
 
-TOTAL_FILES			:=	$(shell find $(SRC_DIR) -type f -name *.c | wc -l)
+TOTAL_FILES			:=	$(shell find $(SRC_DIR) -type f -name "*.c" | wc -l)
 COMPILED_FILES		=	0
 STEP				:=	100
 

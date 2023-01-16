@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:18 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/14 18:24:31 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 07:33:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	run(t_push_swap *ps)
 	char	*cmd;
 	char	*end;
 
-	if (ps == 0)
-		ft_error_and_exit();
 	cmd = get_next_line(STDIN);
 	while (cmd)
 	{

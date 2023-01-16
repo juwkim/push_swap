@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:51 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/15 21:46:39 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 07:56:46 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 # include "libft.h"
 # include "deque.h"
-
-// typedef struct s_deque_node
-// {
-// 	int					num;
-// 	unsigned int		rank;
-// 	struct s_deque_node	*prev;
-// 	struct s_deque_node	*next;
-// }	t_deque_node;
 
 typedef struct s_ps_value
 {
@@ -36,13 +28,6 @@ typedef struct s_ps_value
 	unsigned int	pivot1;
 	unsigned int	pivot2;
 }	t_ps_value;
-
-typedef struct s_push_swap
-{
-	t_deque			a;
-	t_deque			b;
-	unsigned int	max;
-}	t_push_swap;
 
 void	ps_restore(t_push_swap *ps, unsigned int ra, unsigned int rb);
 void	ps_pivot(t_deque *dq, unsigned int size, t_ps_value *val);

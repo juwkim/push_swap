@@ -6,40 +6,11 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/15 21:08:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/16 07:54:56 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
-
-void	init(t_push_swap *ps)
-{
-	ps->max = 0;
-	dq_init(&ps->a);
-	dq_init(&ps->b);
-}
-
-unsigned int	push(t_push_swap *ps, char cmd)
-{
-	t_deque_node	*tmp;
-	t_deque			*from_to[2];
-
-	if (cmd == 'a')
-	{
-		from_to[0] = &ps->b;
-		from_to[1] = &ps->a;
-	}
-	else
-	{
-		from_to[0] = &ps->a;
-		from_to[1] = &ps->b;
-	}
-	if (from_to[0]->node[0] == 0)
-		return (0);
-	tmp = from_to[0]->deque(from_to[0], 0);
-	from_to[1]->enque(from_to[1], 0, tmp);
-	return (1);
-}
 
 unsigned int	swap(struct s_push_swap *ps, char cmd)
 {
