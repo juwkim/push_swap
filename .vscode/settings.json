@@ -9,7 +9,9 @@
         "type_traits": "c",
         "cstdint": "cpp",
         "murmurhash3.h": "c",
-        "deque.h": "c"
+        "parse.h": "c",
+        "stdbool.h": "c",
+        "stddef.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "makefile.launchConfigurations": [
