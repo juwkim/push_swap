@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/16 15:04:42 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/17 16:43:42 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,24 +20,36 @@ CFLAGS				:=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD -fsanitize=leak 
 MAGIC_DIR			:=	algorithms-and-data-structures
 LIBFT_DIR			:=	libft
 
+OPERATIONS_DIR		:=	operations
+PARSE_DIR			:=	parse
+SOLVE_DIR			:=	solve
+CHECKER_DIR			:=	checker
+
 SRC_DIR				:=	sources
 BUILD_DIR			:=	build
 INC_DIR				:=	-I includes -I $(MAGIC_DIR)/includes -I $(LIBFT_DIR)/includes
 
-# Define the source files
+# Define the libraries
 
 MAGIC				:=	$(MAGIC_DIR)/magic.a
 LIBFT				:=	$(LIBFT_DIR)/libft.a
 
-PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c parse.c)
-PUSHSWAP_OBJS		:=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
-PUSHSWAP_DEPS		:=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
+# Define the source files
+
+OPERATIONS_SRC		:=	$(addprefix $(OPERATIONS_DIR)/, push.c reverse_rotate.c rotate.c swap.c)
+PARSE_SRC			:=	$(addprefix $(PARSE_DIR)/, parse.c)
+SOLVE_SRC			:=	$(addprefix $(SOLVE_DIR)/, a_to_b.c b_to_a.c restore.c set_pivot.c)
+CHECKER_SRC			:=	$(addprefix $(CHECKER_DIR)/, checker.c)
+
+PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c $(OPERATIONS_SRC) $(PARSE_SRC) $(SOLVE_SRC))
+PUSHSWAP_OBJS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
+PUSHSWAP_DEPS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
 PUSHSWAP			:=	push_swap
 
-CHECKER_SRCS		:=	$(addprefix $(SRC_DIR)/, deque.c init.c parse.c checker.c)
-CHECKER_OBJS		:=	$(patsubst %.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
-CHECKER_DEPS		:=	$(patsubst %.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
+CHECKER_SRCS		:=	$(addprefix $(SRC_DIR)/, $(CHECKER_SRC) $(OPERATIONS_SRC) $(PARSE_SRC))
+CHECKER_OBJS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
+CHECKER_DEPS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
 
 CHECKER				:=	checker
 
@@ -45,7 +57,7 @@ CHECKER				:=	checker
 # Define the variables for progress bar
 
 TOTAL_FILES			:=	$(shell find $(SRC_DIR) -type f -name "*.c" | wc -l)
-COMPILED_FILES		=	0
+COMPILED_FILES		:=	0
 STEP				:=	100
 
 
@@ -60,14 +72,14 @@ bonus: all
 	@$(MAKE) -j $(CHECKER)
 
 $(PUSHSWAP): $(PUSHSWAP_OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC) $(LIBFT)
 	@printf "\n$(MAGENTA)[PUSHSWAP] Linking Success\n$(DEF_COLOR)"
 
 $(CHECKER): $(CHECKER_OBJS)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LIBFT) $(MAGIC) $(LIBFT)
 	@printf "\n$(MAGENTA)[PUSHSWAP] Linking Success $@\n$(DEF_COLOR)"
 
-$(BUILD_DIR)/%.o : %.c | dir_guard
+$(BUILD_DIR)/%.o : $(SRC_DIR)/%.c | dir_guard
 	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
 	$(eval COMPILED_FILES = $(shell expr $(COMPILED_FILES) + 1))
 	$(eval PROGRESS = $(shell expr $(COMPILED_FILES) "*" $(STEP) / $(TOTAL_FILES)))
@@ -75,7 +87,10 @@ $(BUILD_DIR)/%.o : %.c | dir_guard
 	@printf "$(YELLOW)[PUSHSWAP] [%02d/%02d] ( %3d %%) Compiling $<\r$(DEF_COLOR)" $(COMPILED_FILES) $(TOTAL_FILES) $(PROGRESS)
 
 dir_guard:
-	@mkdir -p $(addprefix $(BUILD_DIR)/, $(SRC_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(OPERATIONS_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(PARSE_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(SOLVE_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(CHECKER_DIR))
 
 norm:
 	@(norminette | grep Error) || (printf "$(GREEN)[PUSHSWAP]:\tNorminette Success\n$(DEF_COLOR)")

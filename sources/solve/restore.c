@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   restore.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:52:37 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 13:28:42 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 15:00:25 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "solve/restore.h"
 
-int	main(int argc, char **argv)
+void	restore(t_deque *a, t_deque *b, size_t ra, size_t rb)
 {
-	t_deque	a;
-	t_deque	b;
-	int		cur;
-
-	if (argc == 1)
-		ft_error_and_exit("i don't know what to do");
-	dq_init(&a);
-	dq_init(&b);
-	parse(&a, argc, (const char **) argv);
-	a_to_b(&a, &b, dq_size(&a));
-	cur = a.head;
-	while ((a.tail - cur) % QUEUE_SIZE)
+	if (dq_size(a) == ra)
+		ra = 0;
+	if (dq_size(b) == rb)
+		rb = 0;
+	while (ra && rb)
 	{
-		ft_printf("item: %d rank: %d\n", a.nodes[cur].item, a.nodes[cur].rank);
-		cur = (cur + 1) % QUEUE_SIZE;
+		ft_printf("rrr\n");
+		--ra;
+		--rb;
 	}
+	while (ra--)
+		ft_printf("rra\n");
+	while (rb--)
+		ft_printf("rrb\n");
 }

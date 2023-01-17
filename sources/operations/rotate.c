@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 09:16:23 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 09:38:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "operations/rotate.h"
 
-# include "libft.h"
-# include "sorting.h"
+static bool	rotate(t_deque *dq)
+{
+	if (dq_is_empty(dq))
+		return (false);
+	dq_push_back(dq, dq_front(dq));
+	dq_pop_front(dq);
+	return (true);
+}
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+bool	ra(t_deque *a)
+{
+	ft_printf("ra\n");
+	return (rotate(a));
+}
 
-int	main(int argc, char **argv);
+bool	rb(t_deque *b)
+{
+	ft_printf("rb\n");
+	return (rotate(b));
+}
 
-#endif // MAIN_H
+bool	rr(t_deque *a, t_deque *b)
+{
+	ft_printf("rr\n");
+	return (ra(a) & rb(b));
+}

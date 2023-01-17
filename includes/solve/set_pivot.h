@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   set_pivot.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 13:31:25 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 15:09:40 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef SET_PIVOT_H
+# define SET_PIVOT_H
 
-# include "libft.h"
+# include "deque.h"
 # include "sorting.h"
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+typedef struct s_pivot
+{
+	int	small;
+	int	big;	
+}	t_pivot;
 
-int	main(int argc, char **argv);
+void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
 
-#endif // MAIN_H
+#endif // SET_PIVOT_H

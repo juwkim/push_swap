@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_pivot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:52:37 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/13 12:31:44 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 16:10:51 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "solve/set_pivot.h"
 
-int	main(int argc, char **argv)
+void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot)
 {
-	t_deque	a;
-	t_deque	b;
-	int		cur;
+	size_t		i;
+	int			cur;
+	int *const	arr = malloc(n * sizeof(int));
 
-	if (argc == 1)
-		ft_error_and_exit("i don't know what to do");
-	dq_init(&a);
-	dq_init(&b);
-	parse(&a, argc, (const char **) argv);
-	a_to_b(&a, &b, dq_size(&a));
-	cur = a.head;
-	while ((a.tail - cur) % QUEUE_SIZE)
+	if (arr == NULL)
+		exit(EXIT_FAILURE);
+	i = 0;
+	cur = dq->head;
+	while (i < n)
 	{
-		ft_printf("item: %d rank: %d\n", a.nodes[cur].item, a.nodes[cur].rank);
+		arr[i] = dq->nodes[cur].rank;
+		++i;
 		cur = (cur + 1) % QUEUE_SIZE;
 	}
+	heap_sort(arr, n);
+	pivot->small = arr[n / 3];
+	pivot->big = arr[2 * n / 3];
+	free(arr);
 }

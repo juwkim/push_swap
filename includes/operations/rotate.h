@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   rotate.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 09:14:25 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 09:34:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ROTATE_H
+# define ROTATE_H
 
+# include "deque.h"
 # include "libft.h"
-# include "sorting.h"
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+bool	ra(t_deque *a);
+bool	rb(t_deque *b);
+bool	rr(t_deque *a, t_deque *b);
 
-int	main(int argc, char **argv);
-
-#endif // MAIN_H
+#endif // ROTATE_H

@@ -13,7 +13,15 @@
         "stdbool.h": "c",
         "stddef.h": "c",
         "stdint.h": "c",
-        "ft_math.h": "c"
+        "ft_math.h": "c",
+        "push.h": "c",
+        "sorting.h": "c",
+        "ft_memory.h": "c",
+        "set_pivot.h": "c",
+        "binary_search_tree.h": "c",
+        "max_heap.h": "c",
+        "a_to_b.h": "c",
+        "checker.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "makefile.launchConfigurations": [

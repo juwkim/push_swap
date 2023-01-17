@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   a_to_b.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 15:08:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef A_TO_B_H
+# define A_TO_B_H
 
-# include "libft.h"
+# include "deque.h"
 # include "sorting.h"
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+# include "config.h"
 
-int	main(int argc, char **argv);
+# include "solve/b_to_a.h"
+# include "solve/restore.h"
+# include "solve/set_pivot.h"
 
-#endif // MAIN_H
+# include "operations/push.h"
+# include "operations/rotate.h"
+
+void	a_to_b(t_deque *a, t_deque *b, size_t n);
+
+#endif // A_TO_B_H

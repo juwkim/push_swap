@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 09:05:16 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 15:02:52 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "operations/push.h"
 
-# include "libft.h"
-# include "sorting.h"
+static bool	push(t_deque *dest, t_deque *src)
+{
+	if (dq_is_empty(src))
+		return (false);
+	dq_push_front(dest, dq_front(src));
+	dq_pop_front(src);
+	return (true);
+}
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+bool	pa(t_deque *a, t_deque *b)
+{
+	ft_printf("pa\n");
+	return (push(a, b));
+}
 
-int	main(int argc, char **argv);
-
-#endif // MAIN_H
+bool	pb(t_deque *a, t_deque *b)
+{
+	ft_printf("pb\n");
+	return (push(b, a));
+}

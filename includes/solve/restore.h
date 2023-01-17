@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   restore.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 13:29:48 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 13:43:30 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef RESTORE_H
+# define RESTORE_H
 
-# include "libft.h"
-# include "sorting.h"
+# include "deque.h"
 
-# include "parse/parse.h"
-# include "solve/a_to_b.h"
+void	restore(t_deque *a, t_deque *b, size_t ra, size_t rb);
 
-int	main(int argc, char **argv);
-
-#endif // MAIN_H
+#endif // RESTORE_H

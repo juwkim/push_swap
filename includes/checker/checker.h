@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:51:57 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 16:13:10 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/17 16:42:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "libft.h"
+# include "deque.h"
 # include "sorting.h"
 
 # include "parse/parse.h"
-# include "solve/a_to_b.h"
+# include "operations/push.h"
+# include "operations/reverse_rotate.h"
+# include "operations/rotate.h"
+# include "operations/swap.h"
 
-int	main(int argc, char **argv);
-
-#endif // MAIN_H
+#endif // CHECKER_H
