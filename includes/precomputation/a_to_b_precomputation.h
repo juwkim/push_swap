@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.h                                           :+:      :+:    :+:   */
+/*   a_to_b_precomputation.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 00:07:54 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 17:00:17 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_H
-# define B_TO_A_H
+#ifndef A_TO_B_PRECOMPUTATION_H
+# define A_TO_B_PRECOMPUTATION_H
 
 # include "deque.h"
-# include "sorting.h"
+# include "murmurhash3_x86_32.h"
 
 # include "config.h"
 
-# include "solve/a_to_b.h"
-# include "solve/restore.h"
+# include "precomputation/a_to_b_case/a_to_b_case2.h"
+# include "precomputation/a_to_b_case/a_to_b_case3.h"
+# include "precomputation/a_to_b_case/a_to_b_case4.h"
 
-# include "operations/push.h"
-# include "operations/rotate.h"
+void	a_to_b_precomputation(t_push_swap *ps, size_t n);
 
-# include "precomputation/a_to_b_precomputation.h"
-# include "precomputation/b_to_a_precomputation.h"
-
-void	b_to_a(t_push_swap *ps, size_t n);
-
-#endif // B_TO_A_H
+#endif // A_TO_B_PRECOMPUTATION_H

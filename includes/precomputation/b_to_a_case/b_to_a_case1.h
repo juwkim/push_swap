@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_pivot.h                                        :+:      :+:    :+:   */
+/*   b_to_a_case1.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:31:25 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 15:09:40 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:28:14 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 16:46:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SET_PIVOT_H
-# define SET_PIVOT_H
+#ifndef B_TO_A_CASE1_H
+# define B_TO_A_CASE1_H
 
-# include "deque.h"
-# include "sorting.h"
+# include "config.h"
+# include "murmurhash3_x86_32.h"
+# include "precomputation/eval.h"
 
-typedef struct s_pivot
-{
-	int	small;
-	int	big;	
-}	t_pivot;
+// CASE 1
+# define CASE1_BTOA_0 403245123 // 1
+# define CASE1_BTOA_0_CMD "pa"
 
-void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
+void	case1_btoa(t_push_swap *ps, uint32_t hash);
 
-#endif // SET_PIVOT_H
+#endif // B_TO_A_CASE1_H

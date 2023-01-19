@@ -6,44 +6,86 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 15:00:23 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 10:54:32 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solve/b_to_a.h"
 
-static void	devide(t_deque *a, t_deque *b, size_t n, t_arg *arg);
+static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot);
+static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
 
-void	b_to_a(t_deque *a, t_deque *b, size_t n)
-{
-	t_arg	arg;
-
-	if (n <= PRECOMPUTED)
-	{
-		// precomputation(a, b, n);
-		return ;
-	}
-	ft_bzero(&arg, sizeof(t_arg));
-	devide(a, b, n, &arg);
-	a_to_b(a, b, arg.pa - arg.ra);
-	restore(a, b, arg.ra, arg.rb);
-	a_to_b(a, b, arg.ra);
-	a_to_b(a, b, arg.rb);
-}
-
-static void	devide(t_deque *a, t_deque *b, size_t n, t_arg *arg)
+void	b_to_a(t_push_swap *ps, size_t n)
 {
 	t_pivot	pivot;
 
-	set_pivot(b, n, &pivot);
-	while (n--)
+	if (n == 0)
+		return ;
+	if (n <= PRECOMPUTED)
 	{
-		if (less(dq_front(b).rank, pivot.small))
-			arg->rb += rb(b);
+		b_to_a_precomputation(ps, n);
+		return ;
+	}
+	if (dq_nsorted(&ps->a, n, greater))
+	{
+		while (n--)
+			pa(ps);
+		return ;
+	}
+	devide(ps, n, &pivot);
+	a_to_b(ps, n - pivot.big_idx);
+	restore(ps, pivot.ra, pivot.rb);
+	a_to_b(ps, pivot.big_idx - pivot.small_idx);
+	b_to_a(ps, pivot.small_idx);
+}
+
+static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot)
+{
+	set_pivot(&ps->b, n, pivot);
+	while (pivot->pa != (n - pivot->small_idx))
+	{
+		if (less(dq_front(&ps->b), pivot->small))
+		{
+			rb(ps);
+			++pivot->rb;
+		}
 		else
 		{
-			arg->pa += pa(a, b);
-			arg->ra += (less(dq_front(a).rank, pivot.big) && ra(a));
+			pa(ps);
+			++pivot->pa;
+			if (less(dq_front(&ps->a), pivot->big))
+			{
+				ra(ps);
+				++pivot->ra;
+			}
 		}
 	}
+}
+
+static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot)
+{
+	size_t		i;
+	int			cur;
+	int *const	arr = malloc(n * sizeof(int));
+
+	if (arr == NULL)
+		exit(EXIT_FAILURE);
+	i = 0;
+	cur = dq->head;
+	while (i < n)
+	{
+		arr[i] = dq->items[cur];
+		++i;
+		cur = (cur + 1) % QUEUE_SIZE;
+	}
+	heap_sort(arr, n);
+	pivot->small_idx = 6 * n / 16;
+	pivot->big_idx = 9 * n / 16;
+	pivot->small = arr[pivot->small_idx];
+	pivot->big = arr[pivot->big_idx];
+	pivot->ra = 0;
+	pivot->rb = 0;
+	pivot->pa = 0;
+	pivot->pb = 0;
+	free(arr);
 }

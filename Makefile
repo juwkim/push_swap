@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/17 16:43:42 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/19 08:10:10 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,10 @@ PARSE_DIR			:=	parse
 SOLVE_DIR			:=	solve
 CHECKER_DIR			:=	checker
 
+PRECOMPUTATION_DIR	:=	precomputation
+ATOB_CASE_DIR		:=	$(PRECOMPUTATION_DIR)/a_to_b_case
+BTOA_CASE_DIR		:=	$(PRECOMPUTATION_DIR)/b_to_a_case
+
 SRC_DIR				:=	sources
 BUILD_DIR			:=	build
 INC_DIR				:=	-I includes -I $(MAGIC_DIR)/includes -I $(LIBFT_DIR)/includes
@@ -38,16 +42,20 @@ LIBFT				:=	$(LIBFT_DIR)/libft.a
 
 OPERATIONS_SRC		:=	$(addprefix $(OPERATIONS_DIR)/, push.c reverse_rotate.c rotate.c swap.c)
 PARSE_SRC			:=	$(addprefix $(PARSE_DIR)/, parse.c)
-SOLVE_SRC			:=	$(addprefix $(SOLVE_DIR)/, a_to_b.c b_to_a.c restore.c set_pivot.c)
+SOLVE_SRC			:=	$(addprefix $(SOLVE_DIR)/, a_to_b.c b_to_a.c restore.c)
 CHECKER_SRC			:=	$(addprefix $(CHECKER_DIR)/, checker.c)
 
-PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c $(OPERATIONS_SRC) $(PARSE_SRC) $(SOLVE_SRC))
+PRECOMPUTATION_SRC	:=	$(addprefix $(PRECOMPUTATION_DIR)/, a_to_b_precomputation.c b_to_a_precomputation.c eval.c)
+ATOB_CASE_SRC		:=	$(addprefix $(ATOB_CASE_DIR)/, a_to_b_case2.c a_to_b_case3.c a_to_b_case4.c)
+BTOA_CASE_SRC		:=	$(addprefix $(BTOA_CASE_DIR)/, b_to_a_case1.c b_to_a_case2.c b_to_a_case3.c b_to_a_case4.c)
+
+PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c $(OPERATIONS_SRC) $(PARSE_SRC) $(SOLVE_SRC) $(PRECOMPUTATION_SRC) $(ATOB_CASE_SRC) $(BTOA_CASE_SRC))
 PUSHSWAP_OBJS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))
 PUSHSWAP_DEPS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.d, $(PUSHSWAP_SRCS))
 
 PUSHSWAP			:=	push_swap
 
-CHECKER_SRCS		:=	$(addprefix $(SRC_DIR)/, $(CHECKER_SRC) $(OPERATIONS_SRC) $(PARSE_SRC))
+CHECKER_SRCS		:=	$(addprefix $(SRC_DIR)/, $(CHECKER_SRC) $(OPERATIONS_SRC) $(PARSE_SRC) $(PRECOMPUTATION_SRC) $(ATOB_CASE_SRC) $(BTOA_CASE_SRC))
 CHECKER_OBJS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(CHECKER_SRCS))
 CHECKER_DEPS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.d, $(CHECKER_SRCS))
 
@@ -89,8 +97,11 @@ $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c | dir_guard
 dir_guard:
 	@mkdir -p $(addprefix $(BUILD_DIR)/, $(OPERATIONS_DIR))
 	@mkdir -p $(addprefix $(BUILD_DIR)/, $(PARSE_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(PRECOMPUTATION_DIR))
 	@mkdir -p $(addprefix $(BUILD_DIR)/, $(SOLVE_DIR))
 	@mkdir -p $(addprefix $(BUILD_DIR)/, $(CHECKER_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(ATOB_CASE_DIR))
+	@mkdir -p $(addprefix $(BUILD_DIR)/, $(BTOA_CASE_DIR))
 
 norm:
 	@(norminette | grep Error) || (printf "$(GREEN)[PUSHSWAP]:\tNorminette Success\n$(DEF_COLOR)")

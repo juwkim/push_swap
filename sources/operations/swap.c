@@ -6,38 +6,35 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 15:05:35 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/18 19:52:32 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations/swap.h"
 
-static bool	swap(t_deque *dq)
+static void	swap(t_deque *dq)
 {
 	const int	cur = dq->head;
 	const int	next = (dq->head + 1) % QUEUE_SIZE;
 
-	if (dq_size(dq) < 2)
-		return (false);
-	ft_swap(&dq->nodes[cur].item, &dq->nodes[next].item);
-	ft_swap(&dq->nodes[cur].rank, &dq->nodes[next].rank);
-	return (true);
+	ft_swap(&dq->items[cur], &dq->items[next]);
 }
 
-bool	sa(t_deque *a)
+void	sa(t_push_swap *ps)
 {
-	ft_printf("sa\n");
-	return (swap(a));
+	swap(&ps->a);
+	list_push_back(&ps->res, "sa");
 }
 
-bool	sb(t_deque *b)
+void	sb(t_push_swap *ps)
 {
-	ft_printf("sb\n");
-	return (swap(b));
+	swap(&ps->b);
+	list_push_back(&ps->res, "sb");
 }
 
-bool	ss(t_deque *a, t_deque *b)
+void	ss(t_push_swap *ps)
 {
-	ft_printf("ss\n");
-	return (sa(a) & sb(b));
+	swap(&ps->a);
+	swap(&ps->b);
+	list_push_back(&ps->res, "ss");
 }

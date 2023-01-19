@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 14:52:37 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 10:36:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 int	main(int argc, char **argv)
 {
-	t_deque	a;
-	t_deque	b;
-	int		cur;
+	t_push_swap	ps;
 
 	if (argc == 1)
-		ft_error_and_exit("i don't know what to do");
-	dq_init(&a);
-	dq_init(&b);
-	parse(&a, argc, (const char **) argv);
-	a_to_b(&a, &b, dq_size(&a));
-	cur = a.head;
-	while ((a.tail - cur) % QUEUE_SIZE)
-	{
-		ft_printf("item: %d rank: %d\n", a.nodes[cur].item, a.nodes[cur].rank);
-		cur = (cur + 1) % QUEUE_SIZE;
-	}
+		return (EXIT_SUCCESS);
+	dq_init(&ps.a);
+	dq_init(&ps.b);
+	list_init(&ps.res);
+	parse(&ps.a, argc, (const char **) argv);
+	// dq_print(&ps.a);
+	// dq_print(&ps.b);
+	a_to_b(&ps, dq_size(&ps.a));
+	list_print(&ps.res);
+	// dq_print(&ps.a);
+	// dq_print(&ps.b);
 }

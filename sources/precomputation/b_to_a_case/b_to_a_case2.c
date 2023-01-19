@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.h                                           :+:      :+:    :+:   */
+/*   b_to_a_case2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:24:37 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 16:35:54 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_H
-# define B_TO_A_H
+#include "precomputation/b_to_a_case/b_to_a_case2.h"
 
-# include "deque.h"
-# include "sorting.h"
-
-# include "config.h"
-
-# include "solve/a_to_b.h"
-# include "solve/restore.h"
-
-# include "operations/push.h"
-# include "operations/rotate.h"
-
-# include "precomputation/a_to_b_precomputation.h"
-# include "precomputation/b_to_a_precomputation.h"
-
-void	b_to_a(t_push_swap *ps, size_t n);
-
-#endif // B_TO_A_H
+void	case2_btoa(t_push_swap *ps, uint32_t hash)
+{
+	if (hash == CASE2_BTOA_0)
+		eval(ps, CASE2_BTOA_0_CMD);
+	else if (hash == CASE2_BTOA_1)
+		eval(ps, CASE2_BTOA_1_CMD);
+}

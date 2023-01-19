@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:16:23 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 09:38:18 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 10:59:23 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 
 static bool	rotate(t_deque *dq)
 {
-	if (dq_is_empty(dq))
+	if (dq_size(dq) < 2)
 		return (false);
 	dq_push_back(dq, dq_front(dq));
 	dq_pop_front(dq);
 	return (true);
 }
 
-bool	ra(t_deque *a)
+void	ra(t_push_swap *ps)
 {
-	ft_printf("ra\n");
-	return (rotate(a));
+	if (rotate(&ps->a))
+		list_push_back(&ps->res, "ra");
 }
 
-bool	rb(t_deque *b)
+void	rb(t_push_swap *ps)
 {
-	ft_printf("rb\n");
-	return (rotate(b));
+	if (rotate(&ps->b))
+		list_push_back(&ps->res, "rb");
 }
 
-bool	rr(t_deque *a, t_deque *b)
+void	rr(t_push_swap *ps)
 {
-	ft_printf("rr\n");
-	return (ra(a) & rb(b));
+	const bool	a = rotate(&ps->a);
+	const bool	b = rotate(&ps->b);
+
+	if (a || b)
+		list_push_back(&ps->res, "rr");
 }

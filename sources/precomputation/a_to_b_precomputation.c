@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.h                                           :+:      :+:    :+:   */
+/*   a_to_b_precomputation.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 00:06:58 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 19:05:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_H
-# define B_TO_A_H
+#include "precomputation/a_to_b_precomputation.h"
 
-# include "deque.h"
-# include "sorting.h"
+void	a_to_b_precomputation(t_push_swap *ps, size_t n)
+{
+	t_dq_data	*arr;
+	uint32_t	hash;
+	static void	(*func[3])(t_push_swap *ps, uint32_t hash) = \
+								{case2_atob, case3_atob, case4_atob_part_0};
 
-# include "config.h"
-
-# include "solve/a_to_b.h"
-# include "solve/restore.h"
-
-# include "operations/push.h"
-# include "operations/rotate.h"
-
-# include "precomputation/a_to_b_precomputation.h"
-# include "precomputation/b_to_a_precomputation.h"
-
-void	b_to_a(t_push_swap *ps, size_t n);
-
-#endif // B_TO_A_H
+	arr = get_rank_arr(&ps->a, n);
+	hash = murmurhash3_x86_32(arr, n * sizeof(t_dq_data), SEED);
+	free(arr);
+	func[n - 2](ps, hash);
+}

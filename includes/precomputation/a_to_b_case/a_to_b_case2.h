@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_pivot.c                                        :+:      :+:    :+:   */
+/*   a_to_b_case2.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:31:44 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 16:10:51 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:28:14 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 18:27:05 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solve/set_pivot.h"
+#ifndef A_TO_B_CASE2_H
+# define A_TO_B_CASE2_H
 
-void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot)
-{
-	size_t		i;
-	int			cur;
-	int *const	arr = malloc(n * sizeof(int));
+# include "config.h"
+# include "murmurhash3_x86_32.h"
+# include "precomputation/eval.h"
 
-	if (arr == NULL)
-		exit(EXIT_FAILURE);
-	i = 0;
-	cur = dq->head;
-	while (i < n)
-	{
-		arr[i] = dq->nodes[cur].rank;
-		++i;
-		cur = (cur + 1) % QUEUE_SIZE;
-	}
-	heap_sort(arr, n);
-	pivot->small = arr[n / 3];
-	pivot->big = arr[2 * n / 3];
-	free(arr);
-}
+// CASE 2
+# define CASE2_ATOB_0 3469865430 // 1 2
+# define CASE2_ATOB_0_CMD ""
+
+# define CASE2_ATOB_1 1217133809 // 2 1
+# define CASE2_ATOB_1_CMD "sa"
+
+void	case2_atob(t_push_swap *ps, uint32_t hash);
+
+#endif // A_TO_B_CASE2_H

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.h                                           :+:      :+:    :+:   */
+/*   eval.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 12:43:52 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 19:49:18 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_H
-# define B_TO_A_H
+#ifndef EVAL_H
+# define EVAL_H
 
-# include "deque.h"
-# include "sorting.h"
+# include "libft.h"
+
+# include "operations/push.h"
+# include "operations/swap.h"
+# include "operations/rotate.h"
+# include "operations/reverse_rotate.h"
 
 # include "config.h"
 
-# include "solve/a_to_b.h"
-# include "solve/restore.h"
+typedef struct s_func_arr
+{
+	const char	*name;
+	const int	name_len;
+	void		(*func)(t_push_swap *);
+}	t_func_arr;
 
-# include "operations/push.h"
-# include "operations/rotate.h"
+void	eval(t_push_swap *ps, const char *cmd_list);
 
-# include "precomputation/a_to_b_precomputation.h"
-# include "precomputation/b_to_a_precomputation.h"
-
-void	b_to_a(t_push_swap *ps, size_t n);
-
-#endif // B_TO_A_H
+#endif // EVAL_H

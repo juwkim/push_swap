@@ -21,7 +21,19 @@
         "binary_search_tree.h": "c",
         "max_heap.h": "c",
         "a_to_b.h": "c",
-        "checker.h": "c"
+        "checker.h": "c",
+        "a_to_b_precomputation.h": "c",
+        "b_to_a_precomputation.h": "c",
+        "b_to_a.h": "c",
+        "restore.h": "c",
+        "config.h": "c",
+        "murmurhash3_x86_32.h": "c",
+        "eval.h": "c",
+        "reverse_rotate.h": "c",
+        "b_to_a_case1.h": "c",
+        "b_to_a_case2.h": "c",
+        "a_to_b_case2.h": "c",
+        "a_to_b_case4.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "makefile.launchConfigurations": [

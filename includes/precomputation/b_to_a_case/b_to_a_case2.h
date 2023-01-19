@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a.h                                           :+:      :+:    :+:   */
+/*   b_to_a_case2.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:28:14 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 16:46:21 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_H
-# define B_TO_A_H
-
-# include "deque.h"
-# include "sorting.h"
+#ifndef B_TO_A_CASE2_H
+# define B_TO_A_CASE2_H
 
 # include "config.h"
+# include "murmurhash3_x86_32.h"
+# include "precomputation/eval.h"
 
-# include "solve/a_to_b.h"
-# include "solve/restore.h"
+// CASE 2
+# define CASE2_BTOA_0 3469865430 // 1 2
+# define CASE2_BTOA_0_CMD "sb pa pa"
 
-# include "operations/push.h"
-# include "operations/rotate.h"
+# define CASE2_BTOA_1 1217133809 // 2 1
+# define CASE2_BTOA_1_CMD "pa pa"
 
-# include "precomputation/a_to_b_precomputation.h"
-# include "precomputation/b_to_a_precomputation.h"
+void	case2_btoa(t_push_swap *ps, uint32_t hash);
 
-void	b_to_a(t_push_swap *ps, size_t n);
-
-#endif // B_TO_A_H
+#endif // B_TO_A_CASE2_H

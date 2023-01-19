@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:27:05 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 09:34:01 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/18 19:48:42 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "deque.h"
 # include "libft.h"
 
-bool	rra(t_deque *a);
-bool	rrb(t_deque *b);
-bool	rrr(t_deque *a, t_deque *b);
+# include "config.h"
+
+void	rra(t_push_swap *ps);
+void	rrb(t_push_swap *ps);
+void	rrr(t_push_swap *ps);
 
 #endif // REVERSE_ROTATE_H

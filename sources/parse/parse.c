@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:58 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/17 15:01:28 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/18 00:55:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	parse(t_deque *a, const int argc, const char **argv)
 	int			i;
 	int			j;
 	char		**splited;
-	t_dq_node	node;
 
 	i = 1;
 	while (i < argc)
@@ -28,8 +27,7 @@ void	parse(t_deque *a, const int argc, const char **argv)
 		j = 0;
 		while (splited[j])
 		{
-			node.item = ft_atoi(splited[j]);
-			dq_push_back(a, node);
+			dq_push_back(a, ft_atoi(splited[j]));
 			free(splited[j]);
 			++j;
 		}
