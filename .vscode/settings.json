@@ -33,7 +33,11 @@
         "b_to_a_case1.h": "c",
         "b_to_a_case2.h": "c",
         "a_to_b_case2.h": "c",
-        "a_to_b_case4.h": "c"
+        "a_to_b_case4.h": "c",
+        "a_to_b_case3.h": "c",
+        "a_to_b_case4_part_0.h": "c",
+        "b_to_a_case5_part_2.h": "c",
+        "b_to_a_case5_part_1.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "makefile.launchConfigurations": [

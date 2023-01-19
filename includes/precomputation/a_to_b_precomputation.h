@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 00:07:54 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 17:00:17 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 19:11:37 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 # include "config.h"
 
-# include "precomputation/a_to_b_case/a_to_b_case2.h"
-# include "precomputation/a_to_b_case/a_to_b_case3.h"
-# include "precomputation/a_to_b_case/a_to_b_case4.h"
+# include "precomputation/a_to_b_case/a_to_b_case2_part_0.h"
+# include "precomputation/a_to_b_case/a_to_b_case3_part_0.h"
+# include "precomputation/a_to_b_case/a_to_b_case4_part_0.h"
+# include "precomputation/a_to_b_case/a_to_b_case5_part_0.h"
 
 void	a_to_b_precomputation(t_push_swap *ps, size_t n);
 

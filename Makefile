@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/19 13:12:31 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/19 19:11:01 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,10 @@ SOLVE_SRC			:=	$(addprefix $(SOLVE_DIR)/, a_to_b.c b_to_a.c restore.c)
 CHECKER_SRC			:=	$(addprefix $(CHECKER_DIR)/, checker.c)
 
 PRECOMPUTATION_SRC	:=	$(addprefix $(PRECOMPUTATION_DIR)/, a_to_b_precomputation.c b_to_a_precomputation.c eval.c simple_case.c)
-ATOB_CASE_SRC		:=	$(addprefix $(ATOB_CASE_DIR)/, a_to_b_case2.c a_to_b_case3.c a_to_b_case4.c)
-BTOA_CASE_SRC		:=	$(addprefix $(BTOA_CASE_DIR)/, b_to_a_case1.c b_to_a_case2.c b_to_a_case3.c b_to_a_case4.c)
+ATOB_CASE_SRC		:=	$(addprefix $(ATOB_CASE_DIR)/, a_to_b_case2_part_0.c a_to_b_case3_part_0.c a_to_b_case4_part_0.c \
+a_to_b_case5_part_0.c a_to_b_case5_part_1.c a_to_b_case5_part_2.c)
+BTOA_CASE_SRC		:=	$(addprefix $(BTOA_CASE_DIR)/, b_to_a_case1_part_0.c b_to_a_case2_part_0.c b_to_a_case3_part_0.c b_to_a_case4_part_0.c \
+b_to_a_case5_part_0.c b_to_a_case5_part_1.c b_to_a_case5_part_2.c)
 
 PUSHSWAP_SRCS		:=	$(addprefix $(SRC_DIR)/, main.c $(OPERATIONS_SRC) $(PARSE_SRC) $(SOLVE_SRC) $(PRECOMPUTATION_SRC) $(ATOB_CASE_SRC) $(BTOA_CASE_SRC))
 PUSHSWAP_OBJS		:=	$(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(PUSHSWAP_SRCS))

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a_case2.c                                     :+:      :+:    :+:   */
+/*   a_to_b_case2_part_0.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 16:24:37 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 16:35:54 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:57:58 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 18:33:02 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "precomputation/b_to_a_case/b_to_a_case2.h"
+#ifndef A_TO_B_CASE2_PART_0_H
+# define A_TO_B_CASE2_PART_0_H
 
-void	case2_btoa(t_push_swap *ps, uint32_t hash)
-{
-	if (hash == CASE2_BTOA_0)
-		eval(ps, CASE2_BTOA_0_CMD);
-	else if (hash == CASE2_BTOA_1)
-		eval(ps, CASE2_BTOA_1_CMD);
-}
+# include "config.h"
+# include "murmurhash3_x86_32.h"
+# include "precomputation/eval.h"
+
+# define A_TO_B_CASE2_0 0xced1f1d6 // 1 2
+# define A_TO_B_CASE2_0_CMD ""
+
+# define A_TO_B_CASE2_1 0x488bfcf1 // 2 1
+# define A_TO_B_CASE2_1_CMD "sa"
+
+void	a_to_b_case2_0(t_push_swap *ps, uint32_t hash);
+
+#endif // A_TO_B_CASE2_PART_0_H

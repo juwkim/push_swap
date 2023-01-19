@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_to_a_case1.h                                     :+:      :+:    :+:   */
+/*   b_to_a_case2_part_0.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 16:28:14 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 16:46:18 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/18 16:57:58 by juwkim            #+#    #+#             */
+/*   Updated: 2023/01/18 18:33:02 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef B_TO_A_CASE1_H
-# define B_TO_A_CASE1_H
+#include "precomputation/b_to_a_case/b_to_a_case2_part_0.h"
 
-# include "config.h"
-# include "murmurhash3_x86_32.h"
-# include "precomputation/eval.h"
-
-// CASE 1
-# define CASE1_BTOA_0 403245123 // 1
-# define CASE1_BTOA_0_CMD "pa"
-
-void	case1_btoa(t_push_swap *ps, uint32_t hash);
-
-#endif // B_TO_A_CASE1_H
+void	b_to_a_case2_0(t_push_swap *ps, uint32_t hash)
+{
+	if (hash == B_TO_A_CASE2_0)
+		eval(ps, B_TO_A_CASE2_0_CMD);
+	else if (hash == B_TO_A_CASE2_1)
+		eval(ps, B_TO_A_CASE2_1_CMD);
+}

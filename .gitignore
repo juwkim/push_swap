@@ -2,3 +2,4 @@ build
 push_swap
 log_error
 ./checker
+auto_pre_generator
