@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:51 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 19:09:56 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 19:44:16 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "list.h"
 # include "deque.h"
 
-# define PRECOMPUTED	5
+# define PRECOMPUTED	6
 # define SEED			2147483647
 
 typedef struct s_push_swap

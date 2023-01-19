@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 11:40:41 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 20:27:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,54 @@ static void	swap(t_deque *dq)
 bool	sa(t_push_swap *ps)
 {
 	swap(&ps->a);
-	list_push_back(&ps->res, "sa");
+	if (list_size(&ps->res) != 0)
+	{
+		if (ft_strncmp(list_back(&ps->res), "sa", 2) == 0)
+			list_pop_back(&ps->res);
+		else if (ft_strncmp(list_back(&ps->res), "sb", 2) == 0)
+		{
+			list_pop_back(&ps->res);
+			list_push_back(&ps->res, "ss");
+		}
+		else
+			list_push_back(&ps->res, "sa");
+	}
+	else
+		list_push_back(&ps->res, "sa");
 	return (true);
 }
 
 bool	sb(t_push_swap *ps)
 {
 	swap(&ps->b);
-	list_push_back(&ps->res, "sb");
+	if (list_size(&ps->res) != 0)
+	{
+		if (ft_strncmp(list_back(&ps->res), "sb", 2) == 0)
+			list_pop_back(&ps->res);
+		else if (ft_strncmp(list_back(&ps->res), "sa", 2) == 0)
+		{
+			list_pop_back(&ps->res);
+			list_push_back(&ps->res, "ss");
+		}
+		else
+			list_push_back(&ps->res, "sb");
+	}
+	else
+		list_push_back(&ps->res, "sb");
 	return (true);
 }
 
 bool	ss(t_push_swap *ps)
 {
-	swap(&ps->a);
-	swap(&ps->b);
-	list_push_back(&ps->res, "ss");
+	if (dq_size(&ps->a) >= 2 && dq_size(&ps->b) >= 2)
+	{
+		swap(&ps->a);
+		swap(&ps->b);
+		list_push_back(&ps->res, "ss");
+	}
+	else if (dq_size(&ps->a) >= 2)
+		sa(ps);
+	else if (dq_size(&ps->b) >= 2)
+		sb(ps);
 	return (true);
 }

@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 12:15:55 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/19 13:20:15 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/19 20:16:55 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -365,20 +365,26 @@ if [ "$FLAG" = "all" ] || [ "$FLAG" = "simple" ]; then
 	random_checker "Random list of Five numbers" "(0..4)" 12 5
 fi
 
-if [ "$FLAG" = "all" ] || [ "$FLAG" = "middle" ]; then
+if [ "$FLAG" = "all" ] || [ "$FLAG" = "one hundred" ]; then
 	echo -e "\n${BOLD}Middle version${RESET}\n"
 	echo -e "less than 700\t-> 5\nless than 900\t-> 4\nless than 1100\t-> 3\nless than 1300\t-> 2\nless than 1500\t-> 1\n"
 	random_checker "Random list of hundred numbers -50 to 49" "(-50..49)" 1500 100
 fi
 
-if [ "$FLAG" = "all" ] || [ "$FLAG" = "advanced" ]; then
+if [ "$FLAG" = "all" ] || [ "$FLAG" = "five hundred" ]; then
 	echo -e "\n${BOLD}Advanced version${RESET}\n"
 	echo -e "less than 5500\t-> 5\nless than 7000\t-> 4\nless than 8500\t-> 3\nless than 10000\t-> 2\nless than 11500\t-> 1\n"
 	random_checker "Random list of five hundred numbers 0 to 499" "(0..499)" 11500 500
 fi
 
-if [ "$FLAG" = "all" ] || [ "$FLAG" = "Very advanced" ]; then
+if [ "$FLAG" = "all" ] || [ "$FLAG" = "one thousand" ]; then
 	echo -e "\n${BOLD}Very Advanced version${RESET}\n"
 	echo -e "less than 10000\t-> 5\nless than 12500\t-> 4\nless than 15000\t-> 3\nless than 17500\t-> 2\nless than 20000\t-> 1\n"
 	random_checker "Random list of ten hundred numbers 0 to 999" "(0..999)" 20000 1000
+fi
+
+if [ "$FLAG" = "all" ] || [ "$FLAG" = "two thousand" ]; then
+	echo -e "\n${BOLD}Highly Advanced version${RESET}\n"
+	echo -e "less than 30000\t-> 5\nless than 35000\t-> 4\nless than 40000\t-> 3\nless than 45000\t-> 2\nless than 50000\t-> 1\n"
+	random_checker "Random list of two hundred numbers 0 to 1999" "(-1000..999)" 50000 2000
 fi
