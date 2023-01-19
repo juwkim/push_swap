@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 12:15:55 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/19 13:13:18 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/19 13:20:15 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -361,6 +361,8 @@ if [ "$FLAG" = "all" ] || [ "$FLAG" = "simple" ]; then
 	checker5 "Five numbers" "4 3 1 2 0"
 	checker5 "Five numbers" "4 3 2 0 1"
 	checker5 "Five numbers" "4 3 2 1 0"
+
+	random_checker "Random list of Five numbers" "(0..4)" 12 5
 fi
 
 if [ "$FLAG" = "all" ] || [ "$FLAG" = "middle" ]; then

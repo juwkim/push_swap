@@ -6,14 +6,14 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 11:42:36 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 14:56:43 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solve/a_to_b.h"
 
-static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot);
-static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
+static void		devide(t_push_swap *ps, size_t n, t_pivot *pivot);
+static void		set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
 
 void	a_to_b(t_push_swap *ps, size_t n)
 {
@@ -37,7 +37,7 @@ void	a_to_b(t_push_swap *ps, size_t n)
 
 static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot)
 {
-	size_t	small_cnt;
+	size_t			small_cnt;
 
 	small_cnt = 0;
 	set_pivot(&ps->a, n, pivot);
