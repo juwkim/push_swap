@@ -1,3 +1,4 @@
 build
 push_swap
+log_error
 ./checker

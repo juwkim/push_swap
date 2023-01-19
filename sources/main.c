@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 10:36:04 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 13:02:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ int	main(int argc, char **argv)
 	parse(&ps.a, argc, (const char **) argv);
 	// dq_print(&ps.a);
 	// dq_print(&ps.b);
-	a_to_b(&ps, dq_size(&ps.a));
+	if (dq_size(&ps.a) == 3)
+		simple_case(&ps);
+	else
+		a_to_b(&ps, dq_size(&ps.a));
 	list_print(&ps.res);
 	// dq_print(&ps.a);
 	// dq_print(&ps.b);
 }
+

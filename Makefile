@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/19 08:10:10 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/19 13:12:31 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ PARSE_SRC			:=	$(addprefix $(PARSE_DIR)/, parse.c)
 SOLVE_SRC			:=	$(addprefix $(SOLVE_DIR)/, a_to_b.c b_to_a.c restore.c)
 CHECKER_SRC			:=	$(addprefix $(CHECKER_DIR)/, checker.c)
 
-PRECOMPUTATION_SRC	:=	$(addprefix $(PRECOMPUTATION_DIR)/, a_to_b_precomputation.c b_to_a_precomputation.c eval.c)
+PRECOMPUTATION_SRC	:=	$(addprefix $(PRECOMPUTATION_DIR)/, a_to_b_precomputation.c b_to_a_precomputation.c eval.c simple_case.c)
 ATOB_CASE_SRC		:=	$(addprefix $(ATOB_CASE_DIR)/, a_to_b_case2.c a_to_b_case3.c a_to_b_case4.c)
 BTOA_CASE_SRC		:=	$(addprefix $(BTOA_CASE_DIR)/, b_to_a_case1.c b_to_a_case2.c b_to_a_case3.c b_to_a_case4.c)
 
@@ -106,6 +106,9 @@ dir_guard:
 norm:
 	@(norminette | grep Error) || (printf "$(GREEN)[PUSHSWAP]:\tNorminette Success\n$(DEF_COLOR)")
 
+test:
+	@bash ./tester.sh
+
 clean:
 	@$(MAKE) -C $(MAGIC_DIR) clean
 	@$(MAKE) -C $(LIBFT_DIR) clean
@@ -123,7 +126,7 @@ re: fclean
 	@$(MAKE) all
 	@printf "$(GREEN)Cleaned and rebuilt everything for pushswap!\n$(DEF_COLOR)"
 
-.PHONY: all clean fclean re bonus dir_guard norm
+.PHONY: all clean fclean re bonus dir_guard norm test
 
 #Colors
 

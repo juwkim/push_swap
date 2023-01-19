@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:21:22 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 16:01:34 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 12:58:17 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "solve/a_to_b.h"
 # include "solve/b_to_a.h"
 # include "precomputation/eval.h"
+# include "precomputation/simple_case.h"
 
 # include "config.h"
 

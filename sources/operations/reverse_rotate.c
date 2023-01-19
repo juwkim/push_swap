@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:16:23 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 11:40:20 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 13:11:24 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,17 @@ static bool	reverse_rotate(t_deque *dq)
 bool	rra(t_push_swap *ps)
 {
 	reverse_rotate(&ps->a);
-	if (ft_strncmp(list_back(&ps->res), "ra", 2) == 0)
-		list_pop_back(&ps->res);
-	else if (ft_strncmp(list_back(&ps->res), "rrb", 2) == 0)
+	if (list_size(&ps->res) != 0)
 	{
-		list_pop_back(&ps->res);
-		list_push_back(&ps->res, "rrr");
+		if (ft_strncmp(list_back(&ps->res), "ra", 2) == 0)
+			list_pop_back(&ps->res);
+		else if (ft_strncmp(list_back(&ps->res), "rrb", 2) == 0)
+		{
+			list_pop_back(&ps->res);
+			list_push_back(&ps->res, "rrr");
+		}
+		else
+			list_push_back(&ps->res, "rra");
 	}
 	else
 		list_push_back(&ps->res, "rra");
