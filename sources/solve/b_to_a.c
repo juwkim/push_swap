@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 19:10:08 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 21:25:26 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot)
 		cur = (cur + 1) % QUEUE_SIZE;
 	}
 	heap_sort(arr, n);
-	pivot->small_idx = 6 * n / 16;
-	pivot->big_idx = 9 * n / 16;
+	pivot->small_idx = 40 * n / 100;
+	pivot->big_idx = 60 * n / 100;
 	pivot->small = arr[pivot->small_idx];
 	pivot->big = arr[pivot->big_idx];
 	pivot->ra = 0;
