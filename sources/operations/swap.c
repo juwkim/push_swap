@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 19:52:32 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 11:40:41 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,24 @@ static void	swap(t_deque *dq)
 	ft_swap(&dq->items[cur], &dq->items[next]);
 }
 
-void	sa(t_push_swap *ps)
+bool	sa(t_push_swap *ps)
 {
 	swap(&ps->a);
 	list_push_back(&ps->res, "sa");
+	return (true);
 }
 
-void	sb(t_push_swap *ps)
+bool	sb(t_push_swap *ps)
 {
 	swap(&ps->b);
 	list_push_back(&ps->res, "sb");
+	return (true);
 }
 
-void	ss(t_push_swap *ps)
+bool	ss(t_push_swap *ps)
 {
 	swap(&ps->a);
 	swap(&ps->b);
 	list_push_back(&ps->res, "ss");
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:14:25 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 19:48:47 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 11:39:49 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # include "config.h"
 
-void	ra(t_push_swap *ps);
-void	rb(t_push_swap *ps);
-void	rr(t_push_swap *ps);
+bool	ra(t_push_swap *ps);
+bool	rb(t_push_swap *ps);
+bool	rr(t_push_swap *ps);
 
 #endif // ROTATE_H

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 10:54:32 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/19 11:43:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,12 @@ static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot)
 	while (pivot->pa != (n - pivot->small_idx))
 	{
 		if (less(dq_front(&ps->b), pivot->small))
-		{
-			rb(ps);
-			++pivot->rb;
-		}
+			pivot->rb += rb(ps);
 		else
 		{
-			pa(ps);
-			++pivot->pa;
+			pivot->pa += pa(ps);
 			if (less(dq_front(&ps->a), pivot->big))
-			{
-				ra(ps);
-				++pivot->ra;
-			}
+				pivot->ra += ra(ps);
 		}
 	}
 }
