@@ -10,46 +10,44 @@
 
 ## Algorithmic project
 
-<p align="center">
-	<img src="https://github.com/ailopez-o/42Barcelona-push_swap/blob/main/img/push_swap_2.png" />
-</p>
-
 The main goal is to sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. To succeed you’ll have to manipulate various
 types of algorithms and choose the one (of many) most appropriate solution for an
 optimized data sorting.
 
 Pull files ↙️
-```bash
-git clone --recursive https://github.com/ailopez-o/42Barcelona-Push_swap.git
 ```
-Compile both push_swap & checker ↙️
+$ git clone --recursive https://github.com/juwkim/push_swap.git
+```
 
-```bash
+Compile push_swap ↙️
+```
 $ make
 ```
-### Execution example
+
+Compile both push_swap & checker ↙️
 ```
-$>ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
-6
-$>ARG="4 67 3 87 23"; ./push_swap $ARG | ./my_checker $ARG
-OK
-$>
-```
-### Execution example whith GUI (press S to start sorting)
-```
-$>ARG="-g 4 67 3 87 23"; ./push_swap $ARG
+$ make bonus
 ```
 
+### Execution example
+```
+$ ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+6
+$ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+OK
+
+```
 
 All functions are created in accordance with Norm.
 
-**!NOTE** <br />
-Because of 42 School norm requirements: <br />
-* All variables are declared and aligned at the top of each function <br />
-* Each function can't have more then 25 lines of code <br />
-* C++ style code commenting is forbidden <br />
-* Project should be created just with allowed functions otherwise it's cheating. <br />
+### NOTE
+
+Because of 42 School norm requirements:
+* All variables are declared and aligned at the top of each function
+* Each function can't have more then 25 lines of code
+* C++ style code commenting is forbidden
+* Project should be created just with allowed functions otherwise it's cheating.
 
 ### Game rules
 
