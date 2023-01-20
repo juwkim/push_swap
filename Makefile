@@ -6,14 +6,15 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/19 20:47:05 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/20 18:17:15 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the compiler and flags
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD -fsanitize=leak -fsanitize=address
+CFLAGS				:=	-Wall -Wextra -Werror -march=native -O2 -pipe -MMD -fsanitize=address
+LINUX				:=	-fsanitize=leak
 
 # Define the directories
 
@@ -115,13 +116,13 @@ test:
 clean:
 	@$(MAKE) -C $(MAGIC_DIR) clean
 	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(RM) -r $(BUILD_DIR)
+	@$(RM) -r $(BUILD_DIR) log_error
 	@printf "$(BLUE)[PUSHSWAP]:\tobj. dep. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
 
 fclean:
 	@$(MAKE) -C $(MAGIC_DIR) fclean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@$(RM) -r $(BUILD_DIR) $(PUSHSWAP) $(CHECKER)
+	@$(RM) -r $(BUILD_DIR) $(PUSHSWAP) $(CHECKER) log_error
 	@printf "$(BLUE)[PUSHSWAP]:\tobj. dep. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
 	@printf "$(CYAN)[PUSHSWAP]:\texec. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
 

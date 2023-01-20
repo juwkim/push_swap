@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 22:33:14 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:46:22 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,24 @@ static void		set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
 
 void	a_to_b(t_push_swap *ps, size_t n)
 {
-	t_pivot	pivot;
+	t_pivot		pivot;
+	static bool	b_to_a_entered;
 
 	if (n == 0)
+		return ;
+	if (dq_nsorted(&ps->a, n, less))
 		return ;
 	if (n <= PRECOMPUTED)
 	{
 		a_to_b_precomputation(ps, n);
 		return ;
 	}
-	if (dq_nsorted(&ps->a, n, less))
-		return ;
 	devide(ps, n, &pivot);
+	if (b_to_a_entered == false)
+		pivot.ra = 0;
 	restore(ps, pivot.ra, pivot.rb);
 	a_to_b(ps, n - (pivot.big_idx + 1));
+	b_to_a_entered = true;
 	b_to_a(ps, pivot.big_idx - pivot.small_idx);
 	b_to_a(ps, pivot.small_idx + 1);
 }
