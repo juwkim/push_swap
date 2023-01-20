@@ -6,13 +6,13 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 12:15:55 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/20 18:07:33 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/20 18:44:07 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-NUM_TESTS=10
+NUM_TESTS=100
 PUSH_SWAP=./push_swap
 CKER=1
 
@@ -384,13 +384,13 @@ if [ "$FLAG" = "all" ] || [ "$FLAG" = "one thousand" ]; then
 fi
 
 if [ "$FLAG" = "all" ] || [ "$FLAG" = "two thousand" ]; then
-	echo -e "\n${BOLD}Highly Advanced version${RESET}\n"
+	echo -e "\n${BOLD}Extra Advanced version${RESET}\n"
 	echo -e "less than 30000\t-> 5\nless than 35000\t-> 4\nless than 40000\t-> 3\nless than 45000\t-> 2\nless than 50000\t-> 1\n"
 	random_checker "Random list of two thousand numbers 0 to 1999" "(0..1999)" 50000 2000
 fi
 
 if [ "$FLAG" = "all" ] || [ "$FLAG" = "five thousand" ]; then
-	echo -e "\n${BOLD}Highly Advanced version${RESET}\n"
+	echo -e "\n${BOLD}Ultra Advanced version${RESET}\n"
 	echo -e "less than 60000\t-> 5\nless than 65000\t-> 4\nless than 70000\t-> 3\nless than 75000\t-> 2\nless than 80000\t-> 1\n"
 	random_checker "Random list of five thousand numbers 0 to 4999" "(0..4999)" 80000 5000
 fi
