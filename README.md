@@ -47,12 +47,12 @@ $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
 
 ## Game rules
 
-* The game is composed of 2 stacks named a and b. <br>
-* To start with: <br>
-◦ a contains a random number of either positive or negative numbers without any duplicates. <br>
-◦ b is empty. <br>
-* The goal is to sort in ascending order numbers into stack a. <br>
-* To do this you have the following operations at your disposal. <br>
+	* The game is composed of two stacks named a and b.
+	* To start with:
+		◦ stack a contains a random number of either positive or negative numbers without any duplicates.
+		◦ stack b is empty.
+	* The goal is to sort in ascending order numbers into stack a.
+	* To do this you have to use the following operations at your disposal.
 
 |Command|Description													|
 |:---:	|:---														| 
@@ -138,21 +138,16 @@ a b
 ```
 
 ## push_swap
-* You have to write a program named push_swap which will receive as an argument
-the stack a formatted as a list of integers. The first argument should be at the top
-of the stack (be careful about the order).
-* The program must display the smallest list of instructions possible to sort the stack
-a, the smallest number being at the top.
-* Instructions must be separaed by a ’\n’ and nothing else.
-* The goal is to sort the stack with the minimum possible number of operations.
-During defence we’ll compare the number of instructions your program found with
-a maximum number of operation tolerated. If your program either displays a list
-too big or if the list isn’t sorted properly, you’ll get no points.
-* In case of error, you must display Error followed by a ’\n’ on the standard error.
-Errors include for example: some arguments aren’t integers, some arguments are
-bigger than an integer, and/or there are duplicates.
+	* A program named **push_swap** which receives a list of integers into the stack a
+		The first argument should be at the top of the stack a.
+	* The program must display the smallest list of instructions possible to sort stack a as ascending order
+	* Instructions must be separaed by a newline separator and nothing else.
+	* The goal is to sort the stack a with the minimum possible number of operations.
+	* In case of error, you must display Error followed by a newline separator on the stderr.
+	* Errors include for example: some arguments are not integer, some arguments are
+		bigger than integer, and/or there are duplicates.
 
-## push_swap example
+### push_swap example
 ```
 $>./push_swap 4 3 1 2 5 6
 >> sa
@@ -169,22 +164,18 @@ $>./push_swap 3 2a
 ```
 
 ## checker
-* You have to write a program named checker, which will get as an argument the
-stack a formatted as a list of integers. The first argument should be at the top of
-the stack (be careful about the order). If no argument is given checker stops and
-displays nothing.
-* Checker will then wait and read instructions on the stdin, each instruction
-will be followed by newline separator. Once all the instructions have been read, checker will
-execute them on the stack received as an argument.
-* After executing those instructions, if stack a is actually sorted and b is empty, then
-checker must display "OK" followed by a newline separator on the stdout.
-Otherwise, checker must display "KO" followed by a newline separator on the stdout.
-* In case of error, you must display Error followed by a newline separator on the stderr.
-Errors include for example: some arguments are not integers, some arguments are
-bigger than an integer, there are duplicates, an instruction don’t exist and/or is
-incorrectly formatted.
+	* A program named **checker** which receives a list of integers into the stack a
+	The first argument should be at the top of the stack a.
+	* If no argument is given checker stops and displays nothing.
+	* Checker will then wait and read instructions on the stdin, each instruction will be followed by newline separator.
+	Once all the instructions have been read, checker will execute them on the stack received as an argument.
+	* After executing those instructions, if stack a is actually sorted and b is empty, then
+	checker must display "OK" followed by a newline separator on the stdout.
+	* In case of error, **checker** must display "Error" followed by a newline separator on the stderr.
+	* Errors include for example: some arguments are not integer, some arguments are
+		bigger than integer, and/or there are duplicates.
 
-## checker example
+### checker example
 ```
 $>./checker 1 4 3 2
 pb
@@ -205,4 +196,9 @@ ctrl + D
 
 $>./checker 3 2a
 >> Error
+```
+
+## performance
+```
+
 ```
