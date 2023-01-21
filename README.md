@@ -198,14 +198,18 @@ $>./checker 3 2a
 >> Error
 ```
 
-## Performance
+## Performance (Average 100 tests)
 ```
+Random list of five numbers:
+Average 8 (Min: 0 Max: 12)
+
 Random list of one hundred numbers:
-Average 558 (Min: 530 Max: 579)
+Average 555 (Min: 529 Max: 582)
 
 Random list of five hundred numbers:
-Average 3886 (Min: 3809 Max: 3971)
+Average 3886 (Min: 3825 Max: 3955)
 
 Random list of one thousand numbers:
-Average 8730 (Min: 8618 Max: 8875)
+Average 8733 (Min: 8612 Max: 8863)
 ```
+![image](https://user-images.githubusercontent.com/66457470/213859577-56fabe9b-671f-4cf3-b0fc-6bd538ba98f3.png)
