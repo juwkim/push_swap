@@ -198,7 +198,7 @@ $>./checker 3 2a
 >> Error
 ```
 
-## performance
+## Performance
 ```
 Random list of one hundred numbers:
 Average 558 (Min: 530 Max: 579)
