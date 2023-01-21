@@ -1,4 +1,12 @@
-# push swap
+<h1 align="center">
+	 Push Swap
+</h1>
+
+<p align="center">
+	<b><i>Development repository for 42cursus' push swap project</i></b><br>
+	For further information about 42cursus and its projects, please refer to <a href="https://github.com/juwkim/42cursus"><b>42cursus repository</b></a>.
+</p>
+
 
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/juwkim/push_swap?color=lightblue" />
@@ -7,6 +15,21 @@
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/juwkim/push_swap?color=blue" />
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/juwkim/push_swap?color=green" />
 </p>
+
+<h3 align="center">
+	<a href="#usage">Usage</a>
+	<span> · </span>
+	<a href="#game-rules">Game rules</a>
+	<span> · </span>
+	<a href="#push_swap">push_swap</a>
+	<span> · </span>
+	<a href="#checker">checker</a>
+	<span> · </span>
+	<a href="#performance-average-of-100-tests">performance</a>
+	<span> · </span>
+</h3>
+
+---
 
 ## Usage
 
