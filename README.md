@@ -200,5 +200,12 @@ $>./checker 3 2a
 
 ## performance
 ```
+Random list of one hundred numbers:
+Average 558 (Min: 530 Max: 579)
 
+Random list of five hundred numbers:
+Average 3886 (Min: 3809 Max: 3971)
+
+Random list of one thousand numbers:
+Average 8730 (Min: 8618 Max: 8875)
 ```
