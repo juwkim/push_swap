@@ -80,8 +80,8 @@ $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
 |**sa**	|**swap** the first two elements at the top of stack a. Do nothing if there is only one or no elements).	|
 |**sb**	|**swap** the first two elements at the top of stack b. Do nothing if there is only one or no elements).	|
 |**ss**	|**sa** and **sb** at the same time.										|
-|**pa**	|**pop** the first element at the top of stack b and **push** it at the top of a. Do nothing if b is empty.	|
-|**pb**	|**pop** the first element at the top of stack a and **push** it at the top of b. Do nothing if b is empty.	|
+|**pa**	|**pop** the first element of stack b and **push** it at the top of a. Do nothing if b is empty.		|
+|**pb**	|**pop** the first element of stack a and **push** it at the top of b. Do nothing if b is empty.		|
 |**ra**	|**rotate** stack a by 1. The first element becomes the last one.						|
 |**rb**	|**rotate** stack b by 1. The first element becomes the last one.						|
 |**rr**	|**ra** and **rb** at the same time.										|
