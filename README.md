@@ -198,7 +198,7 @@ $>./checker 3 2a
 >> Error
 ```
 
-## Performance (Average 100 tests)
+## Performance (Average of 100 tests)
 ```
 Random list of five numbers:
 Average 8 (Min: 0 Max: 12)
