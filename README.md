@@ -47,12 +47,12 @@ $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
 
 ## Game rules
 
-	* The game is composed of two stacks named a and b.
-	* To start with:
-		◦ stack a contains a random number of either positive or negative numbers without any duplicates.
-		◦ stack b is empty.
-	* The goal is to sort in ascending order numbers into stack a.
-	* To do this you have to use the following operations at your disposal.
+* The game is composed of two stacks named a and b.
+* To start with:
+	◦ stack a contains a random number of either positive or negative numbers without any duplicates.
+	◦ stack b is empty.
+* The goal is to sort in ascending order numbers into stack a.
+* To do this you have to use the following operations at your disposal.
 
 |Command|Description													|
 |:---:	|:---														| 
@@ -138,14 +138,14 @@ a b
 ```
 
 ## push_swap
-	* A program named **push_swap** which receives a list of integers into the stack a
-		The first argument should be at the top of the stack a.
-	* The program must display the smallest list of instructions possible to sort stack a as ascending order
-	* Instructions must be separaed by a newline separator and nothing else.
-	* The goal is to sort the stack a with the minimum possible number of operations.
-	* In case of error, you must display Error followed by a newline separator on the stderr.
-	* Errors include for example: some arguments are not integer, some arguments are
-		bigger than integer, and/or there are duplicates.
+* A program named **push_swap** which receives a list of integers into the stack a
+	The first argument should be at the top of the stack a.
+* The program must display the smallest list of instructions possible to sort stack a as ascending order
+* Instructions must be separaed by a newline separator and nothing else.
+* The goal is to sort the stack a with the minimum possible number of operations.
+* In case of error, you must display Error followed by a newline separator on the stderr.
+* Errors include for example: some arguments are not integer, some arguments are
+	bigger than integer, and/or there are duplicates.
 
 ### push_swap example
 ```
@@ -164,16 +164,16 @@ $>./push_swap 3 2a
 ```
 
 ## checker
-	* A program named **checker** which receives a list of integers into the stack a
-	The first argument should be at the top of the stack a.
-	* If no argument is given checker stops and displays nothing.
-	* Checker will then wait and read instructions on the stdin, each instruction will be followed by newline separator.
-	Once all the instructions have been read, checker will execute them on the stack received as an argument.
-	* After executing those instructions, if stack a is actually sorted and b is empty, then
-	checker must display "OK" followed by a newline separator on the stdout.
-	* In case of error, **checker** must display "Error" followed by a newline separator on the stderr.
-	* Errors include for example: some arguments are not integer, some arguments are
-		bigger than integer, and/or there are duplicates.
+* A program named **checker** which receives a list of integers into the stack a
+The first argument should be at the top of the stack a.
+* If no argument is given checker stops and displays nothing.
+* Checker will then wait and read instructions on the stdin, each instruction will be followed by newline separator.
+Once all the instructions have been read, checker will execute them on the stack received as an argument.
+* After executing those instructions, if stack a is actually sorted and b is empty, then
+checker must display "OK" followed by a newline separator on the stdout.
+* In case of error, **checker** must display "Error" followed by a newline separator on the stderr.
+* Errors include for example: some arguments are not integer, some arguments are
+	bigger than integer, and/or there are duplicates.
 
 ### checker example
 ```
