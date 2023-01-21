@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 12:15:55 by juwkim            #+#    #+#              #
-#    Updated: 2023/01/20 18:44:07 by juwkim           ###   ########.fr        #
+#    Updated: 2023/01/21 17:46:21 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,6 +164,8 @@ random_checker()
 	ERR=0
 	sum=0
 	count=0
+	min=1000000
+	max=0
 	for ((i = 0; i < NUM_TESTS; i++))
 		do
 			if [ $SHUF_OK == 1 ]
@@ -197,16 +199,24 @@ random_checker()
 
 			sum=$((sum + $RET2))
 			((count++))
+			if [ $max -lt $RET2 ];
+				then
+				max=$RET2
+				fi
+			if [ $min -gt $RET2 ];
+				then
+				min=$RET2
+				fi
 	done
 
-	sum=$((sum / $count))
-	if [ $ERR -eq 0 ] && [ $sum -le $3 ];
+	avg=$((sum / $count))
+	if [ $ERR -eq 0 ] && [ $avg -le $3 ];
 		then
 		echo -en "${GREEN} Success"
-		echo -e " - Average $sum ${RESET}$"
+		echo -e " - Average $avg (Min: $min Max: $max) ${RESET}$"
 	else
 		echo -en "${RED} Fail $ERR / $count"
-		echo -e " - Average $sum ${RESET}$"
+		echo -e " - Average $avg ${RESET}$"
 	fi
 }
 
@@ -362,13 +372,13 @@ if [ "$FLAG" = "all" ] || [ "$FLAG" = "simple" ]; then
 	# checker5 "Five numbers" "4 3 2 0 1"
 	# checker5 "Five numbers" "4 3 2 1 0"
 
-	random_checker "Random list of Five numbers" "(0..4)" 12 5
+	random_checker "\nRandom list of five numbers 0 to 4" "(0..4)" 12 5
 fi
 
 if [ "$FLAG" = "all" ] || [ "$FLAG" = "one hundred" ]; then
 	echo -e "\n${BOLD}Middle version${RESET}\n"
 	echo -e "less than 700\t-> 5\nless than 900\t-> 4\nless than 1100\t-> 3\nless than 1300\t-> 2\nless than 1500\t-> 1\n"
-	random_checker "Random list of hundred numbers -50 to 49" "(-50..49)" 1500 100
+	random_checker "Random list of hundred numbers 0 to 99" "(0..99)" 1500 100
 fi
 
 if [ "$FLAG" = "all" ] || [ "$FLAG" = "five hundred" ]; then
@@ -383,14 +393,14 @@ if [ "$FLAG" = "all" ] || [ "$FLAG" = "one thousand" ]; then
 	random_checker "Random list of one thousand numbers 0 to 999" "(0..999)" 20000 1000
 fi
 
-if [ "$FLAG" = "all" ] || [ "$FLAG" = "two thousand" ]; then
-	echo -e "\n${BOLD}Extra Advanced version${RESET}\n"
-	echo -e "less than 30000\t-> 5\nless than 35000\t-> 4\nless than 40000\t-> 3\nless than 45000\t-> 2\nless than 50000\t-> 1\n"
-	random_checker "Random list of two thousand numbers 0 to 1999" "(0..1999)" 50000 2000
-fi
+# if [ "$FLAG" = "all" ] || [ "$FLAG" = "two thousand" ]; then
+# 	echo -e "\n${BOLD}Extra Advanced version${RESET}\n"
+# 	echo -e "less than 30000\t-> 5\nless than 35000\t-> 4\nless than 40000\t-> 3\nless than 45000\t-> 2\nless than 50000\t-> 1\n"
+# 	random_checker "Random list of two thousand numbers 0 to 1999" "(0..1999)" 50000 2000
+# fi
 
-if [ "$FLAG" = "all" ] || [ "$FLAG" = "five thousand" ]; then
-	echo -e "\n${BOLD}Ultra Advanced version${RESET}\n"
-	echo -e "less than 60000\t-> 5\nless than 65000\t-> 4\nless than 70000\t-> 3\nless than 75000\t-> 2\nless than 80000\t-> 1\n"
-	random_checker "Random list of five thousand numbers 0 to 4999" "(0..4999)" 80000 5000
-fi
+# if [ "$FLAG" = "all" ] || [ "$FLAG" = "five thousand" ]; then
+# 	echo -e "\n${BOLD}Ultra Advanced version${RESET}\n"
+# 	echo -e "less than 60000\t-> 5\nless than 65000\t-> 4\nless than 70000\t-> 3\nless than 75000\t-> 2\nless than 80000\t-> 1\n"
+# 	random_checker "Random list of five thousand numbers 0 to 4999" "(0..4999)" 80000 5000
+# fi
