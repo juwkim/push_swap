@@ -26,7 +26,6 @@
 	<a href="#checker">checker</a>
 	<span> · </span>
 	<a href="#performance-average-of-100-tests">performance</a>
-	<span> · </span>
 </h3>
 
 ---
