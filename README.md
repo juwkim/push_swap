@@ -12,7 +12,7 @@
 
 - Pull files ↙️
 ```
-$ git clone --recursive https://github.com/juwkim/push_swap.git
+$ git clone --recursive https://github.com/juwkim/push_swap
 ```
 
 - To make push_swap ↙️
@@ -43,7 +43,6 @@ $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | wc -l
 >> 8
 $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
 >> OK
-
 ```
 
 ## Game rules
@@ -138,43 +137,6 @@ a b
 -------------------------------------------------------------------------------------------------------
 ```
 
-## Checker
-* You have to write a program named checker, which will get as an argument the
-stack a formatted as a list of integers. The first argument should be at the top of
-the stack (be careful about the order). If no argument is given checker stops and
-displays nothing.
-* Checker will then wait and read instructions on the stdin, each instruction
-will be followed by newline separator. Once all the instructions have been read, checker will
-execute them on the stack received as an argument.
-* After executing those instructions, if stack a is actually sorted and b is empty, then
-checker must display "OK" followed by a newline separator on the stdout.
-Otherwise, checker must display "KO" followed by a newline separator on the stdout.
-* In case of error, you must display Error followed by a newline separator on the stderr.
-Errors include for example: some arguments are not integers, some arguments are
-bigger than an integer, there are duplicates, an instruction don’t exist and/or is
-incorrectly formatted.
-
-## Checker example
-```
-$>./checker 1 4 3 2
-pb
-sa
-pb
-sa
-pa
-sa
-pa
->> OK
-$>./checker 3 2 1 0
-pb
-sa
-pb
-ctrl + D
->> KO
-$>./checker 3 2a
->> Error
-```
-
 ## push_swap
 * You have to write a program named push_swap which will receive as an argument
 the stack a formatted as a list of integers. The first argument should be at the top
@@ -190,26 +152,57 @@ too big or if the list isn’t sorted properly, you’ll get no points.
 Errors include for example: some arguments aren’t integers, some arguments are
 bigger than an integer, and/or there are duplicates.
 
-#### Pushswap Example
+## push_swap example
 ```
-$>./push_swap 2 1 3 6 5 8
-ra
+$>./push_swap 4 3 1 2 5 6
+>> sa
+>> pb
+>> sa
+>> pb
+>> ss
+>> pa
+>> sa
+>> pa
+
+$>./push_swap 3 2a
+>> Error
+```
+
+## checker
+* You have to write a program named checker, which will get as an argument the
+stack a formatted as a list of integers. The first argument should be at the top of
+the stack (be careful about the order). If no argument is given checker stops and
+displays nothing.
+* Checker will then wait and read instructions on the stdin, each instruction
+will be followed by newline separator. Once all the instructions have been read, checker will
+execute them on the stack received as an argument.
+* After executing those instructions, if stack a is actually sorted and b is empty, then
+checker must display "OK" followed by a newline separator on the stdout.
+Otherwise, checker must display "KO" followed by a newline separator on the stdout.
+* In case of error, you must display Error followed by a newline separator on the stderr.
+Errors include for example: some arguments are not integers, some arguments are
+bigger than an integer, there are duplicates, an instruction don’t exist and/or is
+incorrectly formatted.
+
+## checker example
+```
+$>./checker 1 4 3 2
 pb
+sa
 pb
 sa
 pa
-rra
+sa
 pa
-$>./push_swap 0 one 2 3
-Error
-$>
-```
+>> OK
 
-### Execution example
-```
-$>ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
-7
-$>ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
-OK
-$>
+$>./checker 3 2 1 0
+pb
+sa
+pb
+ctrl + D
+>> KO
+
+$>./checker 3 2a
+>> Error
 ```
