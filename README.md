@@ -70,8 +70,8 @@ $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
 ## Game rules
 
 * The game is composed of two stacks named a and b.
-* stack a contains a random number of either positive or negative numbers without any duplicates.
-* stack b is empty.
+* Stack a contains a random number of either positive or negative numbers without any duplicates.
+* Stack b is empty.
 * The goal is to sort stack a in ascending order.
 * To do this you have to use the following operations at your disposal.
 
