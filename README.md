@@ -174,7 +174,7 @@ a b
 * Errors include for example: some arguments are not integer, some arguments are bigger than integer, and/or there are duplicates.
 
 ### push_swap example
-```
+```shell
 $>./push_swap 4 3 1 2 5 6
 >> sa
 >> pb
