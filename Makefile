@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:40:05 by juwkim            #+#    #+#              #
-#    Updated: 2023/03/01 07:22:23 by juwkim           ###   ########.fr        #
+#    Updated: 2023/03/01 07:36:46 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,13 @@ dir_guard:
 	@mkdir -p $(addprefix $(OBJ_DIR)/, $(ATOB_CASE_DIR))
 	@mkdir -p $(addprefix $(OBJ_DIR)/, $(BTOA_CASE_DIR))
 
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(PARSE_DIR))
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(OPERATIONS_DIR))
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(PRECOMPUTATION_DIR))
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(SOLVE_DIR))
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(ATOB_CASE_DIR))
+	@mkdir -p $(addprefix $(DEP_DIR)/, $(BTOA_CASE_DIR))
+
 norm:
 	@(norminette | grep Error) || (printf "$(GREEN)[PUSHSWAP]:\tNorminette Success\n$(DEF_COLOR)")
 
@@ -133,8 +140,8 @@ fclean:
 	@$(MAKE) -C $(LIBFT) fclean
 	@$(MAKE) -C $(LIBDS) fclean
 	@$(RM) -r $(OBJ_DIR) $(PUSHSWAP) $(CHECKER) log_error
-	@printf "$(BLUE)[PUSHSWAP] obj. dep. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
-	@printf "$(CYAN)[PUSHSWAP] exec. files$(DEF_COLOR)$(GREEN)	=> Cleaned!\n$(DEF_COLOR)"
+	@printf "$(BLUE)[PUSHSWAP] obj. dep. files$(DEF_COLOR)$(GREEN)  => Cleaned!\n$(DEF_COLOR)"
+	@printf "$(CYAN)[PUSHSWAP] exec. files$(DEF_COLOR)$(GREEN)      => Cleaned!\n$(DEF_COLOR)"
 
 re: fclean
 	@$(MAKE) all
