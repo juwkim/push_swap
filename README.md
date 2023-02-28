@@ -1,23 +1,22 @@
 <h1 align="center">
-	 Push Swap
+	🔄 push_swap
 </h1>
 
 <p align="center">
-	<b><i>Development repository for 42cursus' push swap project</i></b><br>
-	For further information about 42cursus and its projects, please refer to <a href="https://github.com/juwkim/42cursus"><b>42cursus repository</b></a>.
+	<b><i>Because Swap_push isn’t as natural</i></b><br>
 </p>
 
-
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/juwkim/push_swap?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/juwkim/push_swap?color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/juwkim/push_swap?color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/juwkim/push_swap?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/juwkim/push_swap?color=green" />
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/juwkim/push_swap?color=lightblue">
+	<img alt="Code language count" src="https://img.shields.io/github/languages/count/juwkim/push_swap?color=yellow">
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/juwkim/push_swap?color=blue">
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/juwkim/push_swap?color=green">
 </p>
 
 <h3 align="center">
-	<a href="#usage">Usage</a>
+	<a href="#-about-the-project">About</a>
+	<span> · </span>
+	<a href="#%EF%B8%8F-usage">Usage</a>
 	<span> · </span>
 	<a href="#game-rules">Game rules</a>
 	<span> · </span>
@@ -28,21 +27,31 @@
 	<a href="#performance-average-of-100-tests">performance</a>
 </h3>
 
----
+## 💡 About the project
 
-## Usage
+> _This project will make you sort data on a stack, with a limited set of instructions, using
+the lowest possible number of actions. To succeed you’ll have to manipulate various
+types of algorithms and choose the most appropriate solution (out of many) for an
+optimized data sorting._
+
+	This project consists of coding a program that finds the lowest possible number of moves to
+	sort a random list of integers using 2 stacks and a limited set of operations  
+
+For more detailed information, look at the [**subject of this project**](https://github.com/juwkim/42cursus/blob/main/Subject%20PDFs/02_push_swap.pdf).
+
+## 🛠️ Usage
 
 - Pull files ↙️
 ```
 $ git clone --recursive https://github.com/juwkim/push_swap
 ```
 
-- To make push_swap ↙️
+- To build push_swap ↙️
 ```
 $ make
 ```
 
-- To make push_swap & checker ↙️
+- To build push_swap & checker ↙️
 ```
 $ make bonus
 ```
