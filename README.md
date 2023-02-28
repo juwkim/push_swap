@@ -42,34 +42,32 @@ For more detailed information, look at the [**subject of this project**](https:/
 ## 🛠️ Usage
 
 - Pull files ↙️
-```
+```shell
 $ git clone --recursive https://github.com/juwkim/push_swap
 ```
 
 - To build push_swap ↙️
-```
+```shell
 $ make
 ```
 
 - To build push_swap & checker ↙️
-```
+```shell
 $ make bonus
 ```
 
 - To use tester ↙️
-
-```
+```shell
 $ make test
 ```
 
 - To check this repository complies with [norminette](https://github.com/42School/norminette) ↙️
-
-```
+```shell
 $ make norm
 ```
 
 ## Execution example
-```
+```shell
 $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | wc -l
 >> 8
 $ ARG="4 3 1 2 5 6"; ./push_swap $ARG | ./checker $ARG
@@ -201,7 +199,7 @@ checker must display "OK" followed by a newline separator on the stdout.
 * Errors include for example: some arguments are not integer, some arguments are bigger than integer, and/or there are duplicates.
 
 ### checker example
-```
+```shell
 $>./checker 1 4 3 2
 pb
 sa
