@@ -1,8 +1,6 @@
-[submodule "algorithms-and-data-structures"]
-	path = algorithms-and-data-structures
-	url = https://github.com/juwkim/algorithms-and-data-structures.git
-	branch = main
+[submodule "libds"]
+	path = libds
+	url = https://github.com/juwkim/libds.git
 [submodule "libft"]
 	path = libft
 	url = https://github.com/juwkim/libft.git
-	branch = main

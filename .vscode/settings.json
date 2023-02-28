@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"array.h": "c",
+		"cstdio": "c",
+		"deque.h": "c",
+		"double_linked_list.h": "c",
+		"linked_list.h": "c",
+		"stdio.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c",
+		"deque": "c",
+		"vector": "c",
+		"list.h": "c",
+		"sorting.h": "c"
+	}
+}
