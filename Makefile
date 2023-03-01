@@ -160,7 +160,7 @@ debug:
 	@$(MAKE) -C $(LIBDS) DEBUG=1
 	@$(MAKE) -j $(PUSHSWAP) DEBUG=1
 
-.PHONY: all clean fclean re bonus dir_guard norm test debug
+.PHONY: all clean fclean re dir_guard norm test debug
 
 # ---------------------------------------------------------------------------- #
 #   Define the colors                                                          #
