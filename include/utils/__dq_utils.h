@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   __dq_utils.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 16:13:10 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/18 02:51:31 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
+/*   Updated: 2023/03/01 20:31:00 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef __DQ_UTILS_H
+# define __DQ_UTILS_H
 
-# include "libft.h"
-# include "deque.h"
-# include "sorting.h"
-
-# include "parse/parse.h"
-# include "operations/push.h"
-# include "operations/reverse_rotate.h"
-# include "operations/rotate.h"
-# include "operations/swap.h"
-
+# include "libds.h"
 # include "config.h"
 
-#endif // CHECKER_H
+bool	__dq_nsorted(t_deque *dq, size_t n, bool (*key)(int a, int b));
+int		*__dq_get_rank_arr(t_deque *dq, size_t n);
+
+#endif // __DQ_UTILS_H

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:43:52 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 11:40:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:48:59 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 typedef struct s_func_arr
 {
 	const char	*name;
-	const int	name_len;
 	bool		(*func)(t_push_swap *);
 }	t_func_arr;
 

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 02:51:05 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/16 14:28:05 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:29:58 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdbool.h>
 
 # include "libft.h"
-# include "deque.h"
+# include "libds.h"
+# include "utils/__atoi.h"
 
 void	parse(t_deque *a, const int argc, const char **argv);
 

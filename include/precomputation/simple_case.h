@@ -6,15 +6,16 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:56:33 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 13:01:37 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:32:49 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SIMPLE_CASE_H
 # define SIMPLE_CASE_H
 
+# include "libds.h"
 # include "config.h"
-# include "murmurhash3_x86_32.h"
+# include "utils/__dq_utils.h"
 # include "precomputation/eval.h"
 
 // CASE 3

@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:54:21 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 13:11:51 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:33:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	simple_case(t_push_swap *ps)
 {
-	t_dq_data	*arr;
+	int			*arr;
 	uint32_t	hash;
 
-	arr = get_rank_arr(&ps->a, 3);
-	hash = murmurhash3_x86_32(arr, 3 * sizeof(t_dq_data), SEED);
+	arr = __dq_get_rank_arr(&ps->a, 3);
+	hash = murmurhash3_x86_32(arr, 3 * sizeof(int), SEED);
 	free(arr);
 	if (hash == CASE_SIMPLE_0)
 		eval(ps, CASE_SIMPLE_0_CMD);

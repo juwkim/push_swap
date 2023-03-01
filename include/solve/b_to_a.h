@@ -6,20 +6,20 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:34:43 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:31 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:32:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_TO_A_H
 # define B_TO_A_H
 
-# include "deque.h"
-# include "sorting.h"
+# include "libds.h"
 
 # include "config.h"
 
 # include "solve/a_to_b.h"
 # include "solve/restore.h"
+# include "utils/__dq_utils.h"
 
 # include "operations/push.h"
 # include "operations/rotate.h"

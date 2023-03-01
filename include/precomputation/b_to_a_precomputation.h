@@ -6,17 +6,17 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 00:07:54 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 19:44:30 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:32:29 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_TO_A_PRECOMPUTATION_H
 # define B_TO_A_PRECOMPUTATION_H
 
-# include "deque.h"
-# include "murmurhash3_x86_32.h"
+# include "libds.h"
 
 # include "config.h"
+# include "utils/__dq_utils.h"
 
 # include "precomputation/b_to_a_case/b_to_a_case1_part_0.h"
 # include "precomputation/b_to_a_case/b_to_a_case2_part_0.h"

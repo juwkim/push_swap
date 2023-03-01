@@ -6,15 +6,15 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:14:25 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 11:39:49 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:48:47 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROTATE_H
 # define ROTATE_H
 
-# include "deque.h"
 # include "libft.h"
+# include "libds.h"
 
 # include "config.h"
 

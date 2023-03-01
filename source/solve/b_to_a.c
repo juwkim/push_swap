@@ -1,63 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a_to_b.c                                           :+:      :+:    :+:   */
+/*   b_to_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:32:09 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/20 17:46:22 by juwkim           ###   ########.fr       */
+/*   Created: 2023/01/13 12:32:06 by juwkim            #+#    #+#             */
+/*   Updated: 2023/03/01 20:33:04 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solve/a_to_b.h"
+#include "solve/b_to_a.h"
 
-static void		devide(t_push_swap *ps, size_t n, t_pivot *pivot);
-static void		set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
+static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot);
+static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot);
 
-void	a_to_b(t_push_swap *ps, size_t n)
+void	b_to_a(t_push_swap *ps, size_t n)
 {
-	t_pivot		pivot;
-	static bool	b_to_a_entered;
+	t_pivot	pivot;
 
 	if (n == 0)
 		return ;
-	if (dq_nsorted(&ps->a, n, less))
-		return ;
 	if (n <= PRECOMPUTED)
 	{
-		a_to_b_precomputation(ps, n);
+		b_to_a_precomputation(ps, n);
+		return ;
+	}
+	if (__dq_nsorted(&ps->a, n, greater))
+	{
+		while (n--)
+			pa(ps);
 		return ;
 	}
 	devide(ps, n, &pivot);
-	if (b_to_a_entered == false)
-		pivot.ra = 0;
+	a_to_b(ps, n - pivot.big_idx);
 	restore(ps, pivot.ra, pivot.rb);
-	a_to_b(ps, n - (pivot.big_idx + 1));
-	b_to_a_entered = true;
-	b_to_a(ps, pivot.big_idx - pivot.small_idx);
-	b_to_a(ps, pivot.small_idx + 1);
+	a_to_b(ps, pivot.big_idx - pivot.small_idx);
+	b_to_a(ps, pivot.small_idx);
 }
 
 static void	devide(t_push_swap *ps, size_t n, t_pivot *pivot)
 {
-	size_t			small_cnt;
-
-	small_cnt = 0;
-	set_pivot(&ps->a, n, pivot);
-	while (pivot->pb != (pivot->big_idx + 1))
+	set_pivot(&ps->b, n, pivot);
+	while (pivot->pa != (n - pivot->small_idx))
 	{
-		if (greater(dq_front(&ps->a), pivot->big))
-			pivot->ra += ra(ps);
+		if (less(dq_front(&ps->b), pivot->small))
+			pivot->rb += rb(ps);
 		else
 		{
-			pivot->pb += pb(ps);
-			if (small_cnt == pivot->small_idx + 1)
-				continue ;
-			else if (greater(dq_front(&ps->b), pivot->small))
-				pivot->rb += rb(ps);
-			else
-				++small_cnt;
+			pivot->pa += pa(ps);
+			if (less(dq_front(&ps->a), pivot->big))
+				pivot->ra += ra(ps);
 		}
 	}
 }
@@ -68,8 +61,7 @@ static void	set_pivot(t_deque *dq, size_t n, t_pivot *pivot)
 	int			cur;
 	int *const	arr = malloc(n * sizeof(int));
 
-	if (arr == NULL)
-		exit(EXIT_FAILURE);
+	assert(arr != NULL);
 	i = 0;
 	cur = dq->head;
 	while (i < n)

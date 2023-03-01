@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:32:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 20:27:58 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 20:48:28 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ bool	sa(t_push_swap *ps)
 	swap(&ps->a);
 	if (list_size(&ps->res) != 0)
 	{
-		if (ft_strncmp(list_back(&ps->res), "sa", 2) == 0)
-			list_pop_back(&ps->res);
-		else if (ft_strncmp(list_back(&ps->res), "sb", 2) == 0)
+		if (ft_strcmp(list_back(&ps->res), "sa") == 0)
+			list_pop_back(&ps->res, NULL);
+		else if (ft_strcmp(list_back(&ps->res), "sb") == 0)
 		{
-			list_pop_back(&ps->res);
+			list_pop_back(&ps->res, NULL);
 			list_push_back(&ps->res, "ss");
 		}
 		else
@@ -45,11 +45,11 @@ bool	sb(t_push_swap *ps)
 	swap(&ps->b);
 	if (list_size(&ps->res) != 0)
 	{
-		if (ft_strncmp(list_back(&ps->res), "sb", 2) == 0)
-			list_pop_back(&ps->res);
-		else if (ft_strncmp(list_back(&ps->res), "sa", 2) == 0)
+		if (ft_strcmp(list_back(&ps->res), "sb") == 0)
+			list_pop_back(&ps->res, NULL);
+		else if (ft_strcmp(list_back(&ps->res), "sa") == 0)
 		{
-			list_pop_back(&ps->res);
+			list_pop_back(&ps->res, NULL);
 			list_push_back(&ps->res, "ss");
 		}
 		else

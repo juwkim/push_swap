@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   __atoi.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:31:40 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/20 17:32:30 by juwkim           ###   ########.fr       */
+/*   Created: 2023/03/01 20:25:24 by juwkim            #+#    #+#             */
+/*   Updated: 2023/03/01 20:29:39 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef __ATOI_H
+# define __ATOI_H
 
-int	main(int argc, char **argv)
-{
-	t_push_swap	ps;
+# include "libft.h"
+# include <stdbool.h>
 
-	if (argc == 1)
-		return (EXIT_SUCCESS);
-	dq_init(&ps.a);
-	dq_init(&ps.b);
-	list_init(&ps.res);
-	parse(&ps.a, argc, (const char **) argv);
-	if (dq_size(&ps.a) == 3)
-		simple_case(&ps);
-	else
-		a_to_b(&ps, dq_size(&ps.a));
-	list_print(&ps.res);
-}
+int	__atoi(const char *nptr);
+
+#endif // __ATOI_H

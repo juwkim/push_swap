@@ -6,7 +6,7 @@
 /*   By: juwkim <juwkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:31:51 by juwkim            #+#    #+#             */
-/*   Updated: 2023/01/19 19:44:16 by juwkim           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:47:40 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <stddef.h>
 
-# include "list.h"
-# include "deque.h"
+# include "libds.h"
 
 # define PRECOMPUTED	6
 # define SEED			2147483647
